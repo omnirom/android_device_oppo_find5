@@ -23,7 +23,6 @@ on early-init
     mount ext4 /dev/block/platform/msm_sdcc.1/by-name/userdata /data wait rw nosuid
     mkdir /cache
     mount ext4 /dev/block/platform/msm_sdcc.1/by-name/cache /cache wait rw nosuid
-    mkdir /system/etc/debug_0
 
 on init
     # See storage config details at http://source.android.com/tech/storage/
@@ -48,13 +47,10 @@ on init
 on fs
 #    mount_all ./fstab.find5
 #    setprop ro.crypto.fuse_sdcard true
-    mkdir /system/etc/debug_1
-    mkdir /data/debug_2
 
 on early-boot
     # set RLIMIT_MEMLOCK to 64MB
     setrlimit 8 67108864 67108864
-    mkdir /system/etc/debug_3
 
 on boot
     #Create QMUX deamon socket area
@@ -138,7 +134,6 @@ on boot
 
 # msm specific files that need to be created on /data
 on post-fs-data
-    mkdir /system/etc/debug_4
     mkdir /data/media 0770 media_rw media_rw
 
     # Mounting of persist is moved to 'on emmc-fs' and 'on fs' sections
@@ -190,7 +185,35 @@ on post-fs-data
     # LED On/Off synchronization
     chown system system /sys/class/leds/red/device/lock
 
-    mkdir /system/etc/debug_6
+    # communicate with mpdecision and thermald
+    mkdir /dev/socket/mpdecision 0770 system system
+    chmod 2770 /dev/socket/mpdecision
+
+    # adjust vibrator amplitude
+    write /sys/class/timed_output/vibrator/amp 70
+
+    # Enable Power modes and set the CPU Freq Sampling rates
+    write /sys/module/rpm_resources/enable_low_power/L2_cache 1
+    write /sys/module/rpm_resources/enable_low_power/pxo 1
+    write /sys/module/rpm_resources/enable_low_power/vdd_dig 1
+    write /sys/module/rpm_resources/enable_low_power/vdd_mem 1
+    write /sys/module/pm_8x60/modes/cpu0/power_collapse/suspend_enabled 1
+    write /sys/module/pm_8x60/modes/cpu1/power_collapse/suspend_enabled 1
+    write /sys/module/pm_8x60/modes/cpu2/power_collapse/suspend_enabled 1
+    write /sys/module/pm_8x60/modes/cpu3/power_collapse/suspend_enabled 1
+    write /sys/module/pm_8x60/modes/cpu0/power_collapse/idle_enabled 1
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "ondemand"
+    write /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor "ondemand"
+    write /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor "ondemand"
+    write /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor "ondemand"
+    write /sys/devices/system/cpu/cpufreq/ondemand/up_threshold 90
+    write /sys/devices/system/cpu/cpufreq/ondemand/sampling_rate 50000
+    write /sys/devices/system/cpu/cpufreq/ondemand/io_is_busy 1
+    write /sys/devices/system/cpu/cpufreq/ondemand/sampling_down_factor 4
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 384000
+    write /sys/devices/system/cpu/cpu1/cpufreq/scaling_min_freq 384000
+    write /sys/devices/system/cpu/cpu2/cpufreq/scaling_min_freq 384000
+    write /sys/devices/system/cpu/cpu3/cpufreq/scaling_min_freq 384000
 
 on charger
     # Enable Power modes and set the CPU Freq Sampling rates
