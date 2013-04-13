@@ -52,8 +52,8 @@ PRODUCT_COPY_FILES += \
 	device/oppo/find5/WCNSS_qcom_wlan_nv.bin:system/etc/wifi/WCNSS_qcom_wlan_nv.bin
 
 PRODUCT_COPY_FILES += \
-	device/oppo/find5/snd_soc_msm_2x_Fusion3:system/etc/snd_soc_msm/snd_soc_msm_2x_Fusion3 \
-	device/oppo/find5/audio_policy.conf:system/etc/audio_policy.conf
+	device/oppo/find5/configs/snd_soc_msm_2x_Fusion3:system/etc/snd_soc_msm/snd_soc_msm_2x_Fusion3 \
+	device/oppo/find5/configs/audio_policy.conf:system/etc/audio_policy.conf
 
 PRODUCT_COPY_FILES += \
 	device/oppo/find5/thermald-find5.conf:system/etc/thermald.conf
