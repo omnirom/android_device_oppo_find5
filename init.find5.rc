@@ -250,6 +250,11 @@ service qmuxd /system/bin/qmuxd
     user radio
     group radio audio bluetooth gps
 
+service audiod /system/bin/audiod
+    class main
+    user system
+    group audio
+
 service ks_checker /system/bin/sh /system/etc/kickstart_checker.sh
     class core
     oneshot

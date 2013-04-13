@@ -14,14 +14,15 @@
 # limitations under the License.
 #
 
-TARGET_GLOBAL_CFLAGS += -mfpu=neon -mfloat-abi=softfp
-TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp
+TARGET_GLOBAL_CFLAGS += -mfpu=neon -mfloat-abi=softfp -DQCOM_HARDWARE
+TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp -DQCOM_HARDWARE
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
 TARGET_CPU_SMP := true
 TARGET_ARCH := arm
 TARGET_ARCH_VARIANT := armv7-a-neon
 ARCH_ARM_HAVE_TLS_REGISTER := true
+BOARD_USES_QCOM_HARDWARE := true
 
 # Krait optimizations
 TARGET_USE_KRAIT_BIONIC_OPTIMIZATION := true
@@ -108,6 +109,8 @@ TARGET_RELEASETOOLS_EXTENSIONS := device/oppo/find5
 BOARD_CHARGER_ENABLE_SUSPEND := true
 
 TARGET_QCOM_DISPLAY_VARIANT := caf
+TARGET_QCOM_AUDIO_VARIANT := caf
+TARGET_USES_QCOM_MM_AUDIO := true
 
 BOARD_HAVE_LOW_LATENCY_AUDIO := true
 
