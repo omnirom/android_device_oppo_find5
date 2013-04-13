@@ -71,6 +71,7 @@ PRODUCT_COPY_FILES += \
 	device/oppo/find5/hs_detect.kl:system/usr/keylayout/hs_detect.kl \
 	device/oppo/find5/pmic8xxx_pwrkey.kl:system/usr/keylayout/pmic8xxx_pwrkey.kl \
 	device/oppo/find5/keypad_8064.kl:system/usr/keylayout/keypad_8064.kl \
+	device/oppo/find5/synaptics-rmi-ts.kl:system/usr/keylayout/synaptics-rmi-ts.kl \
 	device/oppo/find5/apq8064-tabla-snd-card_Button_Jack.kcm:system/usr/keychars/apq8064-tabla-snd-card_Button_Jack.kcm \
 	device/oppo/find5/hs_detect.kcm:system/usr/keychars/hs_detect.kcm \
 	device/oppo/find5/keypad_8064.kcm:system/usr/keychars/keypad_8064.kcm \
