@@ -35,6 +35,10 @@ PRODUCT_PACKAGES += \
     charger_res_images \
     charger
 
+# Vold and Storage
+PRODUCT_COPY_FILES += \
+        device/oppo/find5/configs/vold.fstab:system/etc/vold.fstab
+
 # Live Wallpapers
 PRODUCT_PACKAGES += \
         LiveWallpapers \
@@ -145,9 +149,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	service.adb.enable=1 \
 	sys.usb.config=adb \
 	ro.debuggable=1 \
-	persist.service.adb.enable=1 \
-	ro.adb.secure=0
-
+	persist.service.adb.enable=1
 
 # Do not power down SIM card when modem is sent to Low Power Mode.
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -255,7 +257,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	ro.qc.sensors.wl_dis=true
 
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-	persist.sys.usb.config=mtp
+	persist.sys.usb.config=mtp \
+	ro.adb.secure=0
 
 # for bugmailer
 PRODUCT_PACKAGES += send_bug
