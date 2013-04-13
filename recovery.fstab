@@ -11,4 +11,4 @@
 /tz	    emmc	/dev/block/platform/msm_sdcc.1/by-name/tz
 /rpm	    emmc	/dev/block/platform/msm_sdcc.1/by-name/rpm
 /aboot	    emmc	/dev/block/platform/msm_sdcc.1/by-name/aboot
-/sdcard            datamedia   /dev/null
+/sdcard            vfat         /dev/block/platform/msm_sdcc.1/by-name/sdcard
