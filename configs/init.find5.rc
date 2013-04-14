@@ -39,6 +39,7 @@ on init
     # Set permissions for persist partition
     mkdir /persist 0771 system system
     mkdir /firmware 0771 system system
+    mount vfat /dev/block/platform/msm_sdcc.1/by-name/modem /firmware ro shortname=lower,uid=1000,gid=1000,dmask=227,fmask=337
 
 on fs
 #    mount_all ./fstab.find5
@@ -186,6 +187,13 @@ on post-fs-data
     # communicate with mpdecision and thermald
     mkdir /dev/socket/mpdecision 0770 system system
     chmod 2770 /dev/socket/mpdecision
+
+    # Tombstone dropboxes
+    mkdir /data/tombstones 0771 system system
+    mkdir /data/tombstones/modem 0771 system system
+    mkdir /data/tombstones/lpass 0771 system system
+    mkdir /data/tombstones/wcnss 0771 system system
+    mkdir /data/tombstones/dsps 0771 system system
 
     # adjust vibrator amplitude
     write /sys/class/timed_output/vibrator/amp 70
