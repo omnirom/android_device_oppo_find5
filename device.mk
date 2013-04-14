@@ -35,6 +35,10 @@ PRODUCT_PACKAGES += \
     charger_res_images \
     charger
 
+# Vold and Storage
+PRODUCT_COPY_FILES += \
+        device/oppo/find5/configs/vold.fstab:system/etc/vold.fstab
+
 # Live Wallpapers
 PRODUCT_PACKAGES += \
         LiveWallpapers \
@@ -48,19 +52,20 @@ PRODUCT_COPY_FILES += \
 	device/oppo/find5/WCNSS_qcom_wlan_nv.bin:system/etc/wifi/WCNSS_qcom_wlan_nv.bin
 
 PRODUCT_COPY_FILES += \
-	device/oppo/find5/snd_soc_msm_2x_Fusion3:system/etc/snd_soc_msm/snd_soc_msm_2x_Fusion3 \
-	device/oppo/find5/audio_policy.conf:system/etc/audio_policy.conf
+	device/oppo/find5/configs/snd_soc_msm_2x_Fusion3:system/etc/snd_soc_msm/snd_soc_msm_2x_Fusion3 \
+	device/oppo/find5/configs/audio_policy.conf:system/etc/audio_policy.conf
 
 PRODUCT_COPY_FILES += \
 	device/oppo/find5/thermald-find5.conf:system/etc/thermald.conf
 
 PRODUCT_COPY_FILES += \
-	device/oppo/find5/init.find5.rc:root/init.find5.rc \
-	device/oppo/find5/init.find5.usb.rc:root/init.find5.usb.rc \
-	device/oppo/find5/fstab.find5:root/fstab.find5 \
-	device/oppo/find5/ueventd.find5.rc:root/ueventd.find5.rc \
-	device/oppo/find5/media_profiles.xml:system/etc/media_profiles.xml \
-	device/oppo/find5/media_codecs.xml:system/etc/media_codecs.xml
+	device/oppo/find5/configs/init.find5.rc:root/init.find5.rc \
+	device/oppo/find5/configs/init.find5.usb.rc:root/init.find5.usb.rc \
+	device/oppo/find5/configs/init.recovery.find5.rc:root/init.recovery.find5.rc \
+	device/oppo/find5/configs/fstab.find5:root/fstab.find5 \
+	device/oppo/find5/configs/ueventd.find5.rc:root/ueventd.find5.rc \
+	device/oppo/find5/configs/media_profiles.xml:system/etc/media_profiles.xml \
+	device/oppo/find5/configs/media_codecs.xml:system/etc/media_codecs.xml
 
 PRODUCT_COPY_FILES += \
 	device/oppo/find5/kickstart_checker.sh:system/etc/kickstart_checker.sh
@@ -145,9 +150,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	service.adb.enable=1 \
 	sys.usb.config=adb \
 	ro.debuggable=1 \
-	persist.service.adb.enable=1 \
-	ro.adb.secure=0
-
+	persist.service.adb.enable=1
 
 # Do not power down SIM card when modem is sent to Low Power Mode.
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -196,7 +199,7 @@ PRODUCT_PACKAGES += \
 	power.msm8960
 
 PRODUCT_COPY_FILES += \
-	device/oppo/find5/init.find5.bt.sh:system/etc/init.find5.bt.sh
+	device/oppo/find5/configs/init.find5.bt.sh:system/etc/init.find5.bt.sh
 
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.qualcomm.bt.hci_transport=smd
@@ -255,7 +258,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	ro.qc.sensors.wl_dis=true
 
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-	persist.sys.usb.config=mtp
+	persist.sys.usb.config=mtp \
+	ro.adb.secure=0
 
 # for bugmailer
 PRODUCT_PACKAGES += send_bug
