@@ -38,6 +38,7 @@ on init
 on init
     # Set permissions for persist partition
     mkdir /persist 0771 system system
+    mount ext4 /dev/block/platform/msm_sdcc.1/by-name/persist /persist nosuid nodev barrier=1
     mkdir /firmware 0771 system system
     mount vfat /dev/block/platform/msm_sdcc.1/by-name/modem /firmware ro shortname=lower,uid=1000,gid=1000,dmask=227,fmask=337
 
@@ -134,6 +135,8 @@ on post-fs-data
     # Mounting of persist is moved to 'on emmc-fs' and 'on fs' sections
     # We chown/chmod /persist again so because mount is run as root + defaults
     chown system system /persist
+
+    start qcom-post-fs
 
     # Create the directories used by the Wireless subsystem
     mkdir /data/misc/wifi 0770 wifi wifi
@@ -309,10 +312,7 @@ service ks_checker /system/bin/sh /system/etc/kickstart_checker.sh
     class core
     oneshot
 
-service kickstart /system/bin/qcks -i /firmware/image/ -r /data/tombstones/mdm/
-    class core
-    user system
-    group system
+service kickstart /system/bin/qcks -i /firmware/image/
     disabled
     oneshot
 
@@ -401,11 +401,18 @@ service conn_init /system/bin/logwrapper /system/bin/conn_init
     group system wifi
     oneshot
 
-service bdAddrLoader /system/bin/bdAddrLoader -f /persist/bluetooth/.bdaddr -h -x
-    class main
-    user bluetooth
-    group system bluetooth
+service qcom-post-fs /system/bin/sh /system/etc/init.qcom.post_fs.sh
+    class core
+    user root
+    disabled
     oneshot
+
+service qcom-post-boot /system/bin/sh /system/etc/init.qcom.post_boot.sh
+    class late_start
+    user root
+#    disabled
+    oneshot
+
 
 # bugreport is triggered by holding down volume down, volume up and power
 service bugreport /system/bin/bugmailer.sh -v
