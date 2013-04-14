@@ -203,10 +203,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
 	power.msm8960
 
-# WIFI MAC update
-PRODUCT_PACKAGES += \
-	mac-update
-
 PRODUCT_COPY_FILES += \
 	device/oppo/find5/configs/init.find5.bt.sh:system/etc/init.find5.bt.sh
 
