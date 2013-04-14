@@ -200,9 +200,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
 	hci_qcomm_init
 
-PRODUCT_PACKAGES += \
-	power.msm8960
-
 PRODUCT_COPY_FILES += \
 	device/oppo/find5/configs/init.find5.bt.sh:system/etc/init.find5.bt.sh
 
