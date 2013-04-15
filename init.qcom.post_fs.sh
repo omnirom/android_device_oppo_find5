@@ -39,10 +39,11 @@ mount -o rw,remount,barrier=1 /system
 # Run thermal script
 /system/bin/sh /system/etc/init.qcom.thermald_conf.sh
 
-# Run wifi script
-/system/bin/sh /system/etc/init.qcom.wifi.sh
-
 # This should be the last command
 # remount system as read-only.
 mount -o ro,remount,barrier=1 /system
+
+# Copy Wi-Fi firmware to /data
+mkdir -p /data/misc/wifi/prima
+cp /persist/WCNSS_* /data/misc/wifi/prima
 
