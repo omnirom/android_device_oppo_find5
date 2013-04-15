@@ -136,6 +136,7 @@ on post-fs-data
     # We chown/chmod /persist again so because mount is run as root + defaults
     chown system system /persist
 
+    mkdir /data/misc/wifi/prima 0775 wifi wifi
     start qcom-post-fs
 
     # Create the directories used by the Wireless subsystem
@@ -147,11 +148,12 @@ on post-fs-data
     chown dhcp system /data/misc/dhcp
 
     # Update WIFI MAC address
-    mkdir /data/misc/wifi/prima 0775 wifi wifi
-    exec /system/bin/mac-update
-
     write /dev/wcnss_wlan 1
     write /sys/module/wcnss_ssr_8960/parameters/enable_riva_ssr 1
+
+    # NFC
+    chmod 0600 /dev/pn544
+    chown nfc nfc /dev/pn544
 
     # Create directory used by audio subsystem
     mkdir /data/misc/audio 0770 audio audio
