@@ -195,12 +195,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	ro.qualcomm.bt.hci_transport=smd
 
 PRODUCT_PACKAGES += \
-	camera.find5 \
-	camera.msm8960 \
-	libmmcamera_interface2 \
-	libmmcamera_interface
-
-PRODUCT_PACKAGES += \
         libmm-omxcore \
 	libdivxdrmdecrypt \
 	libOmxVdec \

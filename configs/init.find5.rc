@@ -130,6 +130,8 @@ on boot
     write /proc/sys/net/core/rmem_max  1220608
     write /proc/sys/net/core/wmem_max  1220608
 
+    start qcamerasvr
+
 # msm specific files that need to be created on /data
 on post-fs-data
     # Mounting of persist is moved to 'on emmc-fs' and 'on fs' sections
@@ -388,6 +390,12 @@ on property:ro.data.large_tcp_window_size=true
 
 service charger /charger
     class charger
+
+#start camera server as daemon
+service qcamerasvr /system/bin/mm-qcamera-daemon
+    class late_start
+    user camera
+    group camera system inet input graphics
 
 service thermald /system/bin/thermald
     class main
