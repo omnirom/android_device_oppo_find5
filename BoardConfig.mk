@@ -14,6 +14,8 @@
 # limitations under the License.
 #
 
+TARGET_SPECIFIC_HEADER_PATH := device/oppo/find5/include
+
 TARGET_GLOBAL_CFLAGS += -mfpu=neon -mfloat-abi=softfp -DQCOM_HARDWARE
 TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp -DQCOM_HARDWARE
 TARGET_CPU_ABI := armeabi-v7a
@@ -104,8 +106,12 @@ BOARD_USES_CAMERA_FAST_AUTOFOCUS := true
 
 BOARD_LIB_DUMPSTATE := libdumpstate.find5
 
-BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := $(TARGET_BOARD_PLATFORM)
-TARGET_NO_RPC := true
+# GPS
+BOARD_HAVE_NEW_QC_GPS := true
+#The below will be needed if we ever want to build GPS HAL from source
+#TARGET_PROVIDES_GPS_LOC_API := true
+#BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := $(TARGET_BOARD_PLATFORM)
+#TARGET_NO_RPC := true
 
 TARGET_RELEASETOOLS_EXTENSIONS := device/oppo/find5
 
