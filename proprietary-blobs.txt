@@ -116,8 +116,3 @@
 /lib/libsensor_reg.so
 /lib/libsensor_user_cal.so
 /vendor/firmware/libpn544_fw.so
-/vendor/firmware/keymaster/keymaster.mdt
-/vendor/firmware/keymaster/keymaster.b00
-/vendor/firmware/keymaster/keymaster.b01
-/vendor/firmware/keymaster/keymaster.b02
-/vendor/firmware/keymaster/keymaster.b03
