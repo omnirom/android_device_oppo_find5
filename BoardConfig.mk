@@ -39,10 +39,9 @@ TARGET_NO_BOOTLOADER := true
 BOARD_KERNEL_BASE := 0x80200000
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.hardware=find5 lpj=67677 user_debug=31 msm_rtb.filter=0x3F ehci-hcd.park=3
-#BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01600000
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x02000000
 
-# Try to build the kernel
+# Kernel
 TARGET_KERNEL_CONFIG := cyanogenmod_find5_defconfig
 
 # Bluetooth
@@ -73,7 +72,7 @@ WIFI_DRIVER_FW_PATH_AP           := "ap"
 
 BOARD_EGL_CFG := device/oppo/find5/configs/egl.cfg
 
-#Display
+# Display
 TARGET_QCOM_DISPLAY_VARIANT := caf
 USE_OPENGL_RENDERER := true
 TARGET_USES_ION := true
@@ -112,7 +111,7 @@ TARGET_RELEASETOOLS_EXTENSIONS := device/oppo/find5
 
 BOARD_CHARGER_ENABLE_SUSPEND := true
 
-#Audio
+# Audio
 BOARD_USES_ALSA_AUDIO:= true
 TARGET_QCOM_AUDIO_VARIANT := caf
 TARGET_USES_QCOM_MM_AUDIO := true
