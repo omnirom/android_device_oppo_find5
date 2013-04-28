@@ -52,6 +52,7 @@
 /lib/hw/gps.default.so
 /lib/hw/nfc.default.so
 /lib/hw/sensors.msm8960.so
+/lib/libAKM.so
 /lib/libC2D2.so
 /lib/libOpenCL.so
 /lib/libOpenVG.so
