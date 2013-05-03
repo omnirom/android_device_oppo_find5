@@ -48,7 +48,7 @@
 /lib/egl/libGLESv2_adreno200.so
 /lib/egl/libplayback_adreno200.so
 /lib/egl/libq3dtools_adreno200.so
-/lib/hw/camera.msm8960.so
+/lib/hw/vendor-camera.msm8960.so
 /lib/hw/gps.default.so
 /lib/hw/nfc.default.so
 /lib/hw/sensors.msm8960.so
