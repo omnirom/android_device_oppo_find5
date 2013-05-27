@@ -167,17 +167,6 @@ char * camera_fixup_setparams(int id, const char * settings)
 
     }
 
-    if (params.get("preview-size")) {
-        const char* previewSize = params.get("preview-size");
-
-        // If it's not the frontcam
-        if (strcmp(previewSize, "1280x960") != 0) {
-            // We enable HDR video setting as it works around dark preview, while
-            // providing a better video quality at the same time anyway.
-            params.set("video-hdr", "1");
-        }
-    }
-
     android::String8 strParams = params.flatten();
     char *ret = strdup(strParams.string());
 
