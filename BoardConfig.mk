@@ -123,3 +123,6 @@ BOARD_HAVE_LOW_LATENCY_AUDIO := true
 -include vendor/oppo/find5/BoardConfigVendor.mk
 
 BOARD_HAS_NO_SELECT_BUTTON := true
+
+# dont build docs
+DISABLE_DROIDDOC := true 

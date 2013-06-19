@@ -251,6 +251,20 @@ PRODUCT_COPY_FILES += \
 	system/extras/bugmailer/bugmailer.sh:system/bin/bugmailer.sh \
 	system/extras/bugmailer/send_bug:system/bin/send_bug
 
+# other apps
+PRODUCT_PACKAGES += \
+    Apollo \
+   	DSPManager \
+   	libcyanogen-dsp \
+    libncurses \
+    bash \
+    CMFileManager \
+    PinyinIME \
+    LockClock \
+    Torch \
+	CMTorch \
+	Trebuchet
+	
 $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
 
 # This is the find5-specific audio package
