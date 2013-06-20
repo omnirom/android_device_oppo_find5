@@ -42,4 +42,6 @@
     <bool name="hasHTCPictureOptions">false</bool>
     <!-- manual zoom step - volume keys -->
     <integer name="manualZoomStep">5</integer>
+    <!-- manual torch mode -->
+    <bool name="needsManualTorch">false</bool>
 </resources>
