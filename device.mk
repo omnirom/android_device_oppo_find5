@@ -168,15 +168,6 @@ PRODUCT_PROPERTY_OVERRIDES += persist.hwc.mdpcomp.enable=true
 # Cell Broadcasts
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.cellbroadcast.emergencyids=0-65534 
-
-# HW info
-PRODUCT_PROPERTY_OVERRIDES += \
-	ro.device.chipset=Qualcomm Snapdragon S4 Pro APQ8064 \
-	ro.device.cpu=1.5GHz quad-core Krait \
-	ro.device.gpu=Qualcomm Adreno 320 \
-	ro.device.front_cam=1.6MP, 720p \
-	ro.device.rear_cam=13MP, 1080p \
-	ro.device.screen_res=1080 x 1920 pixels, 5.0"
         
 PRODUCT_CHARACTERISTICS := nosdcard
 
