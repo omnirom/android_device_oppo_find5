@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+	<!-- defaultValues need to be in sync with the default kernel values! -->
+
+	<PreferenceCategory
+    	android:title="@string/category_s2w_title">
+	    <!-- s2w switch Options -->
+	    <CheckBoxPreference
+	        android:key="s2w_switch"
+	        android:title="@string/s2w_switch_title_head"
+	        android:summary="@string/s2w_switch_summary_head" />
+	    <!-- s2w stroke Options -->
+	    <ListPreference
+	        android:key="s2w_stroke"
+	        android:title="@string/s2w_stroke_title_head"
+	        android:summary="@string/s2w_stroke_summary_head"
+            android:dependency="s2w_switch"
+	        android:entries="@array/s2w_stroke_entries"
+	        android:entryValues="@array/s2w_stroke_entries_values" />
+`		<!-- s2w min length -->
+	    <ListPreference
+	        android:key="s2w_length"
+	        android:title="@string/s2w_length_title_head"
+	        android:summary="@string/s2w_length_summary_head"
+            android:dependency="s2w_switch"
+	        android:entries="@array/s2w_length_entries"
+	        android:entryValues="@array/s2w_length_entries_values" />
+	</PreferenceCategory>
+	
+</PreferenceScreen>

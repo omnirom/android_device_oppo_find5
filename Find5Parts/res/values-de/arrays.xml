@@ -1,0 +1,13 @@
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string-array name="s2w_stroke_entries">
+        <item>Richtungsunabhängig</item>
+        <item>Richtungsabhängig</item>
+    </string-array>
+
+    <string-array name="s2w_length_entries">
+        <item>1 Taste</item>
+        <item>2 Tasten</item>
+        <item>3 Tasten</item>
+    </string-array>
+
+</resources>

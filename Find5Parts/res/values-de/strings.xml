@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">One X Einstellungen</string>
+
+    <string name="category_s2w_title">Sweep2Wake</string>
+    <string name="s2w_switch_title_head">Einschalten</string>
+    <string name="s2w_switch_summary_head">Den Bildschirm durch Streichen über die kapazitiven Tasten ein- und auschalten</string>
+    <string name="s2w_stroke_title_head">Verhalten</string>
+    <string name="s2w_stroke_summary_head">Auf \"Richtungsabhängig\" setzten um jeweils eine Richtung für das Ein- und Ausschalten zu verwenden</string>
+    <string name="s2w_length_title_head">Mindestlänge</string>
+    <string name="s2w_length_summary_head">Anzahl der Tasten, über die gestrichen werden muss</string>
+
+</resources>

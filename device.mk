@@ -267,7 +267,8 @@ PRODUCT_PACKAGES += \
     LockClock \
     Torch \
 	CMTorch \
-	Trebuchet
+	Trebuchet \
+	Find5Parts
 	
 $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
 
