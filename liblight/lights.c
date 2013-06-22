@@ -137,13 +137,11 @@ set_light_backlight(struct light_device_t* dev,
 {
     int err = 0;
     int brightness = rgb_to_brightness(state);
+    
     pthread_mutex_lock(&g_lock);
-
-    // Write LCD and buttons (follows same brightness)
     err = write_int(LCD_FILE, brightness);
-    err = write_int(BUTTONS_FILE, brightness);
-
     pthread_mutex_unlock(&g_lock);
+    
     return err;
 }
 
@@ -298,21 +296,14 @@ static int
 set_light_touchkeys(struct light_device_t* dev,
         struct light_state_t const* state)
 {
-    // The buttons backlight follows display brightness. If we
-    // ever need to do something different, do it here.
+    int err = 0;
+    int brightness = rgb_to_brightness(state);
 
-#if 0
     pthread_mutex_lock(&g_lock);
-
-    int on = 0;
-    if (state->color == -1)
-        on = 1;
-
-    write_int(BUTTONS_FILE, on ? read_int(LCD_FILE) : 0);
-
+    write_int(BUTTONS_FILE, brightness);
     pthread_mutex_unlock(&g_lock);
-#endif
-    return 0;
+    
+    return err;
 }
 
 
