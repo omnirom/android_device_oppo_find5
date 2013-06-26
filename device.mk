@@ -270,7 +270,8 @@ PRODUCT_PACKAGES += \
 	Trebuchet \
 	Find5Parts
 	
-$(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
+$(call inherit-product, frameworks/native/build/phone-xxhdpi-2048-dalvik-heap.mk)
+$(call inherit-product, frameworks/native/build/phone-xxhdpi-2048-hwui-memory.mk)
 
 # This is the find5-specific audio package
 $(call inherit-product, frameworks/base/data/sounds/AudioPackage10.mk)
