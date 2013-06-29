@@ -266,4 +266,9 @@
 
     <!-- Default value for led color when battery is fully charged: 100% -->
     <integer name="config_notificationsBatteryFullARGB">0xFF00FF00</integer> 
+
+    <!-- Indicate whether closing the lid causes the device to go to sleep and opening
+         it causes the device to wake up.
+         The default is false. -->
+    <bool name="config_lidControlsSleep">true</bool>
 </resources>
