@@ -188,7 +188,8 @@ PRODUCT_PACKAGES += \
 	gralloc.msm8960 \
 	copybit.msm8960 \
 	lights.find5 \
-	camera-wrapper.msm8960
+	camera-wrapper.msm8960 \
+	power.find5
 
 PRODUCT_PACKAGES += \
 	alsa.msm8960 \
