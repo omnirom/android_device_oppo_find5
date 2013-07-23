@@ -44,6 +44,10 @@ static int camera_device_close(hw_device_t* device);
 static int camera_get_number_of_cameras(void);
 static int camera_get_camera_info(int camera_id, struct camera_info *info);
 
+#if 0
+static camera_notify_callback orig_notify_cb;
+#endif
+
 static struct hw_module_methods_t camera_module_methods = {
         open: camera_device_open
 };
@@ -198,6 +202,17 @@ int camera_set_preview_window(struct camera_device * device,
     return VENDOR_CALL(device, set_preview_window, window);
 }
 
+#if 0
+void my_notify_cb(int32_t msg_type,
+        int32_t ext1,
+        int32_t ext2,
+        void *user){
+    ALOGD("maxwen my_notify_cb %d", msg_type);
+	
+	orig_notify_cb(msg_type, ext1, ext2, user);
+}
+#endif
+
 void camera_set_callbacks(struct camera_device * device,
         camera_notify_callback notify_cb,
         camera_data_callback data_cb,
@@ -211,6 +226,10 @@ void camera_set_callbacks(struct camera_device * device,
     if(!device)
         return;
 
+#if 0
+	orig_notify_cb = notify_cb;
+    VENDOR_CALL(device, set_callbacks, my_notify_cb, data_cb, data_cb_timestamp, get_memory, user);
+#endif
     VENDOR_CALL(device, set_callbacks, notify_cb, data_cb, data_cb_timestamp, get_memory, user);
 }
 
