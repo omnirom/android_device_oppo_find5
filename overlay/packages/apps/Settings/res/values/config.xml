@@ -2,4 +2,5 @@
   <bool name="has_led_flash">true</bool>
   <bool name="config_show_volumeRockerWake">true</bool>
   <bool name="button_brightness_state_only">false</bool>
+  <bool name="button_brightness_custom_value">true</bool>
 </resources>
