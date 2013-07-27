@@ -105,7 +105,8 @@ static char * camera_fixup_getparams(int id, const char * settings)
 
     // add hdr scene mode to existing scene modes
     params.set(android::CameraParameters::KEY_SUPPORTED_SCENE_MODES, scene_mode_values[id]);
-
+    // added video snapshot supported
+    params.set(android::CameraParameters::KEY_VIDEO_SNAPSHOT_SUPPORTED, "true");
     if (params.get("ae-bracket-hdr")) {
         const char* hdrMode = params.get("ae-bracket-hdr");
         if (strcmp(hdrMode, "HDR") == 0) {
