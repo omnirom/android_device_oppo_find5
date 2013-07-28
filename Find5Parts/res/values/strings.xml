@@ -9,5 +9,9 @@
     <string name="s2w_stroke_summary_head">Set to "Direction dependent" to allow only a left-to-right swipe for turning on and a right-to-left swipe for turning off</string>
     <string name="s2w_length_title_head">Minimum Length</string>
     <string name="s2w_length_summary_head">Set the number of buttons that are needed to be swiped over for switching screen on/off</string>
-
+    <string name="category_s2w_double_tap_title">DoubleTap2Wake</string>
+    <string name="s2w_double_tap_wake_title_head">Enable double tap to wake</string>
+    <string name="s2w_double_tap_wake_summary_head">Switch phone screen on with a double tap on the lower screen area</string>
+    <string name="s2w_double_tap_duration_title_head">Double tap duration</string>
+    <string name="s2w_double_tap_duration_summary_head">Minimal duration in ms between two taps to turn screen on</string>
 </resources>

@@ -26,5 +26,21 @@
 	        android:entries="@array/s2w_length_entries"
 	        android:entryValues="@array/s2w_length_entries_values" />
 	</PreferenceCategory>
-	
+
+	<PreferenceCategory
+    	android:title="@string/category_s2w_double_tap_title">
+	    <!-- s2w dopuble tap Options -->
+	    <CheckBoxPreference
+	        android:key="s2w_double_tap_wake"
+	        android:title="@string/s2w_double_tap_wake_title_head"
+	        android:summary="@string/s2w_double_tap_wake_summary_head" />
+`		<!-- s2w min length -->
+	    <ListPreference
+	        android:key="s2w_double_tap_duration"
+	        android:title="@string/s2w_double_tap_duration_title_head"
+	        android:summary="@string/s2w_double_tap_duration_summary_head"
+            android:dependency="s2w_double_tap_wake"
+	        android:entries="@array/s2w_double_tap_duration_entries"
+	        android:entryValues="@array/s2w_double_tap_duration_values" />
+	</PreferenceCategory>	
 </PreferenceScreen>
