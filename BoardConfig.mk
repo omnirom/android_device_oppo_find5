@@ -43,7 +43,7 @@ BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.hardware=find5 lpj
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x02000000
 
 # Kernel
-TARGET_KERNEL_CONFIG := cyanogenmod_find5_defconfig
+TARGET_KERNEL_CONFIG := aokp_find5_defconfig
 
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
