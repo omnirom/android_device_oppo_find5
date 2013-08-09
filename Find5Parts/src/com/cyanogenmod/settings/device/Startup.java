@@ -13,5 +13,6 @@ public class Startup extends BroadcastReceiver {
         Sweep2WakeMinLength.restore(context);
         DoubleTap2WakeSwitch.restore(context);
         DoubleTap2WakeDuration.restore(context);
+        DoubleTap2WakeBarrier.restore(context);
     }
 }

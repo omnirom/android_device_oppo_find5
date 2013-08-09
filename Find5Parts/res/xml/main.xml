@@ -34,7 +34,6 @@
 	        android:key="s2w_double_tap_wake"
 	        android:title="@string/s2w_double_tap_wake_title_head"
 	        android:summary="@string/s2w_double_tap_wake_summary_head" />
-`		<!-- s2w min length -->
 	    <ListPreference
 	        android:key="s2w_double_tap_duration"
 	        android:title="@string/s2w_double_tap_duration_title_head"
@@ -42,5 +41,13 @@
             android:dependency="s2w_double_tap_wake"
 	        android:entries="@array/s2w_double_tap_duration_entries"
 	        android:entryValues="@array/s2w_double_tap_duration_values" />
+	    <ListPreference
+	        android:key="s2w_double_tap_barrier"
+	        android:title="@string/s2w_double_tap_barrier_title_head"
+	        android:summary="@string/s2w_double_tap_barrier_summary_head"
+            android:dependency="s2w_double_tap_wake"
+	        android:entries="@array/s2w_double_tap_barrier_entries"
+	        android:entryValues="@array/s2w_double_tap_barrier_values" />
+
 	</PreferenceCategory>	
 </PreferenceScreen>

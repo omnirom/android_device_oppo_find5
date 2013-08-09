@@ -19,13 +19,15 @@ public class DeviceSettings extends PreferenceActivity  {
     public static final String KEY_S2WLENGTH = "s2w_length";
     public static final String KEY_DOUBLETAB2WAKE_SWITCH = "s2w_double_tap_wake";
     public static final String KEY_DOUBLETAP2WAKE_DURATION = "s2w_double_tap_duration";
-
+    public static final String KEY_DOUBLETAP2WAKE_BARRIER = "s2w_double_tap_barrier";
+    
     private TwoStatePreference mS2WSwitch;
     private ListPreference mS2WStroke;
     private ListPreference mS2WLength;
     private TwoStatePreference mDoubleTap2WakeSwitch;
     private ListPreference mDoubleTap2WakeDuration;
-        
+    private ListPreference mDoubleTap2WakeBarrier;
+            
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,6 +57,11 @@ public class DeviceSettings extends PreferenceActivity  {
         mDoubleTap2WakeDuration.setEnabled(DoubleTap2WakeDuration.isSupported());
         mDoubleTap2WakeDuration.setValue(squashDurationValue(DoubleTap2WakeDuration.getValue(this)));
         mDoubleTap2WakeDuration.setOnPreferenceChangeListener(new DoubleTap2WakeDuration());
+
+		mDoubleTap2WakeBarrier = (ListPreference) findPreference(KEY_DOUBLETAP2WAKE_BARRIER);
+        mDoubleTap2WakeBarrier.setEnabled(DoubleTap2WakeBarrier.isSupported());
+        mDoubleTap2WakeBarrier.setValue(DoubleTap2WakeBarrier.getValue(this));
+        mDoubleTap2WakeBarrier.setOnPreferenceChangeListener(new DoubleTap2WakeBarrier());
     }
 
     @Override

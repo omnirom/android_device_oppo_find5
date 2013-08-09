@@ -14,4 +14,7 @@
     <string name="s2w_double_tap_wake_summary_head">Switch phone screen on with a double tap on the lower screen area</string>
     <string name="s2w_double_tap_duration_title_head">Double tap duration</string>
     <string name="s2w_double_tap_duration_summary_head">Minimal duration in ms between two taps to turn screen on</string>
+    <string name="s2w_double_tap_barrier_title_head">Double tap area</string>
+    <string name="s2w_double_tap_barrier_summary_head">Define the active screen area to accept double tap to wake</string>
+
 </resources>

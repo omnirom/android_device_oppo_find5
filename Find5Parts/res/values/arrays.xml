@@ -35,4 +35,14 @@
         <item>300</item>
         <item>350</item>
     </string-array>
+
+    <string-array name="s2w_double_tap_barrier_entries" translatable="false">
+        <item>Button area</item>
+        <item>Whole screen</item>
+    </string-array>
+    
+    <string-array name="s2w_double_tap_barrier_values" translatable="false">
+        <item>3690</item>
+        <item>1</item>
+    </string-array>
 </resources>
