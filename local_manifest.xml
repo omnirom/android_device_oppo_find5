@@ -60,14 +60,20 @@
 
   <project path="external/bash" name="CyanogenMod/android_external_bash" remote="cm" revision="cm-10.1" /> 
   <project path="external/libncurses" name="CyanogenMod/android_external_libncurses" remote="cm" revision="cm-10.1" /> 
-
-  <remove-project path="hardware/qcom/audio-caf" name="CyanogenMod/android_hardware_qcom_audio-caf" />
-  <project path="hardware/qcom/audio-caf" name="android_hardware_qcom_audio-caf" remote="maxwen" revision="cm-10.1" />
-       
+s       
   <!-- jpeg-turbo -->
   <remove-project path="external/jpeg" name="AOKP/external_jpeg" />
   <project path="external/jpeg" name="platform_external_libjpeg-turbo" remote="jelly42" revision="libjpeg-turbo_1.3.0" />
-  
+
+  <!--device -->
+  <project path="device/oppo/find5" name="android_device_oppo_find5" remote="maxwen" revision="jb-mr1" />
+
+  <!--kernel -->
+  <project path="kernel/oppo/find5" name="android_kernel_oppo_find5" remote="maxwen" revision="test" />
+
+  <!--vendor -->
+  <project path="vendor/oppo" name="proprietary_vendor_oppo" remote="maxwen" revision="cm-10.1" />
+    
   <!-- IceColdJelly repos -->    
   <project path="packages/apps/Trebuchet" name="android_packages_apps_Trebuchet" remote="jelly42" revision="cm-10.1"/>
   <project path="packages/apps/CMFileManager" name="android_packages_apps_CMFileManager" remote="jelly42" revision="cm-10.1"/>
