@@ -14,5 +14,6 @@ public class Startup extends BroadcastReceiver {
         DoubleTap2WakeSwitch.restore(context);
         DoubleTap2WakeDuration.restore(context);
         DoubleTap2WakeBarrier.restore(context);
+        VibratorStrengthPreference.restore(context);
     }
 }

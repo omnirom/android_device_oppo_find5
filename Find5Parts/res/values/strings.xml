@@ -17,4 +17,8 @@
     <string name="s2w_double_tap_barrier_title_head">Double tap area</string>
     <string name="s2w_double_tap_barrier_summary_head">Define the active screen area to accept double tap to wake</string>
 
+    <string name="category_vibrator">Vibrator</string>
+    <string name="vib_strength_title_head">Strength</string>
+    <string name="vib_strength_summary_head">Define the strength of the vibrator</string>
+    <string name="vib_test">Test</string>
 </resources>
