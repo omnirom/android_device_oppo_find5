@@ -229,9 +229,6 @@ on post-fs-data
     mkdir /data/tombstones/wcnss 0771 system system
     mkdir /data/tombstones/dsps 0771 system system
 
-    # adjust vibrator amplitude
-    write /sys/class/timed_output/vibrator/amp 70
-
     # Enable Power modes 
     write /sys/module/rpm_resources/enable_low_power/L2_cache 1
     write /sys/module/rpm_resources/enable_low_power/pxo 1
