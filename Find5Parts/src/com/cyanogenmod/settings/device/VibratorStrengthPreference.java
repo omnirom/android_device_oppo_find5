@@ -116,11 +116,11 @@ public class VibratorStrengthPreference extends SeekBarDialogPreference implemen
     protected void onDialogClosed(boolean positiveResult) {
         super.onDialogClosed(positiveResult);
 
-        final ContentResolver resolver = getContext().getContentResolver();
-
         if (positiveResult) {
             setValue(String.valueOf(mSeekBar.getProgress()));
-            PreferenceManager.getDefaultSharedPreferences(getContext()).edit().putString(DeviceSettings.KEY_VIBSTRENGTH, String.valueOf(mSeekBar.getProgress()));
+            SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(getContext()).edit();
+            editor.putString(DeviceSettings.KEY_VIBSTRENGTH, String.valueOf(mSeekBar.getProgress()));
+            editor.commit();
         } else {
             restoreOldState();
         }
