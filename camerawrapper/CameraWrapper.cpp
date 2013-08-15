@@ -173,6 +173,10 @@ char * camera_fixup_setparams(int id, const char * settings)
             params.set("video-hfr", "60");
         else
             params.set("video-hfr", "off");
+        
+	    // picture-size must always be the same value as video size
+        if (strcmp(isRecording, "true") == 0)
+            params.set("picture-size", videoSize);
     }
 
     android::String8 strParams = params.flatten();
