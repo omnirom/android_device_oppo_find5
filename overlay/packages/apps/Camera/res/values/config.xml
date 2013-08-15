@@ -45,7 +45,7 @@
     <!-- manual torch mode -->
     <bool name="needsManualTorch">false</bool>
     <!-- hdr video -->
-    <bool name="hasVideoHdr">false</bool>
+    <bool name="hasVideoHdr">true</bool>
     <!-- hdr video setting -->
     <string name="videoHdrParam" translatable="false">video-hdr</string>
 </resources>
