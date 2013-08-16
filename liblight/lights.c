@@ -65,9 +65,6 @@ char const*const RED_PWM_FILE
 char const*const RED_BLINK_FILE
         = "/sys/class/leds/red/device/blink";
 
-char const*const LED_LOCK_UPDATE_FILE
-        = "/sys/class/leds/red/device/lock";
-
 /**
  * device methods
  */
@@ -211,7 +208,6 @@ set_speaker_light_locked(struct light_device_t* dev,
             pwm = 0;
         }
     }
-    write_int(LED_LOCK_UPDATE_FILE, 1); // for LED On/Off synchronization
 
     write_int(RED_LED_FILE, red);
     write_int(GREEN_LED_FILE, green);
@@ -223,7 +219,6 @@ set_speaker_light_locked(struct light_device_t* dev,
     }
     write_int(RED_BLINK_FILE, blink);
 
-    write_int(LED_LOCK_UPDATE_FILE, 0);
     return 0;
 }
 
