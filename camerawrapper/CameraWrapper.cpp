@@ -177,7 +177,7 @@ char * camera_fixup_setparams(int id, const char * settings)
             params.set("camera-mode", "0");
             // stock does it too
             params.set("power-mode", "Low_Power");
-            params.set("picture-size", "4160x3120");
+            params.set("picture-size", videoSize);
         }
     }
 
