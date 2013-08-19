@@ -146,19 +146,15 @@ char * camera_fixup_setparams(int id, const char * settings)
         }
     }
 
-    if (params.get("lensshade")) {
-        // There is a camera mode called "lens shade" which seems to dim
-        // the border of the camera lens. No idea if it's an instagram
-        // effect or if there is a real use, but it should be disabled.
-        // If there is a need for it, we'll have to add support for it in
-        // Camera app.
-        params.set("lensshade", "disable");
-    }
-
-    // Needed for HDR (deadlock otherwise), doesn't affect non-HDR
-    params.set("histogram", "enable");
-    
+    // some values take from stock rom
     params.set("antibanding", "auto");
+    params.set("auto-exposure", "center-weighted");
+    params.set("denoise", "denoise-on");
+    
+    // allowing setting this to true will create the issue
+    // with continious auto focus and flash
+    params.set("auto-exposure-lock", "false");
+    params.set("auto-whitebalance-lock", "false");    
 
     // Enable Qualcomm ZSL mode to workaround dark preview
     // Note: We cannot use Camera app 'enableZSL' as our preview stops
@@ -179,6 +175,7 @@ char * camera_fixup_setparams(int id, const char * settings)
         if (strcmp(isRecording, "true") == 0){
             // ZSL mode MUST be disabled in video mode - breaks HDR video else
             params.set("camera-mode", "0");
+            // stock does it too
             params.set("power-mode", "Low_Power");
             params.set("picture-size", "4160x3120");
         }
