@@ -157,6 +157,8 @@ char * camera_fixup_setparams(int id, const char * settings)
 
     // Needed for HDR (deadlock otherwise), doesn't affect non-HDR
     params.set("histogram", "enable");
+    
+    params.set("antibanding", "auto");
 
     // Enable Qualcomm ZSL mode to workaround dark preview
     // Note: We cannot use Camera app 'enableZSL' as our preview stops
@@ -174,9 +176,12 @@ char * camera_fixup_setparams(int id, const char * settings)
         else
             params.set("video-hfr", "off");
         
-	    // picture-size must always be the same value as video size
-        if (strcmp(isRecording, "true") == 0)
-            params.set("picture-size", videoSize);
+        if (strcmp(isRecording, "true") == 0){
+            // ZSL mode MUST be disabled in video mode - breaks HDR video else
+            params.set("camera-mode", "0");
+            params.set("power-mode", "Low_Power");
+            params.set("picture-size", "4160x3120");
+        }
     }
 
     android::String8 strParams = params.flatten();
