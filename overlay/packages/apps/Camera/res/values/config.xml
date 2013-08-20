@@ -40,6 +40,8 @@
     <bool name="enableZSL">false</bool>
     <!-- HTC extended picture paramaters - contrast, saturation, sharpness -->
     <bool name="hasHTCPictureOptions">false</bool>
+    <!-- extended picture paramaters - contrast, saturation, sharpness -->
+    <bool name="hasExtendedPictureOptions">true</bool>
     <!-- manual zoom step - volume keys -->
     <integer name="manualZoomStep">5</integer>
     <!-- manual torch mode -->
