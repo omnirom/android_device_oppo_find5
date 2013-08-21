@@ -60,10 +60,10 @@
 
   <project path="external/bash" name="CyanogenMod/android_external_bash" remote="cm" revision="cm-10.1" /> 
   <project path="external/libncurses" name="CyanogenMod/android_external_libncurses" remote="cm" revision="cm-10.1" /> 
-s       
+       
   <!-- jpeg-turbo -->
-  <remove-project path="external/jpeg" name="AOKP/external_jpeg" />
-  <project path="external/jpeg" name="platform_external_libjpeg-turbo" remote="jelly42" revision="libjpeg-turbo_1.3.0" />
+  <!--<remove-project path="external/jpeg" name="AOKP/external_jpeg" />
+  <project path="external/jpeg" name="platform_external_libjpeg-turbo" remote="jelly42" revision="libjpeg-turbo_1.3.0" />-->
 
   <!--device -->
   <project path="device/oppo/find5" name="android_device_oppo_find5" remote="maxwen" revision="jb-mr1" />
@@ -78,8 +78,8 @@ s
   <project path="packages/apps/Trebuchet" name="android_packages_apps_Trebuchet" remote="jelly42" revision="cm-10.1"/>
   <project path="packages/apps/CMFileManager" name="android_packages_apps_CMFileManager" remote="jelly42" revision="cm-10.1"/>
 
-  <remove-project path="packages/apps/Bluetooth" name="platform/packages/apps/Bluetooth" />
-  <project path="packages/apps/Bluetooth" name="packages_apps_Bluetooth" remote="jelly42" revision="jb-mr1" />
+  <!--<remove-project path="packages/apps/Bluetooth" name="platform/packages/apps/Bluetooth" />
+  <project path="packages/apps/Bluetooth" name="packages_apps_Bluetooth" remote="jelly42" revision="jb-mr1" />-->
              
   <!-- CM repos -->
   <project path="packages/apps/Apollo" name="CyanogenMod/android_packages_apps_Apollo" remote="cm" revision="cm-10.1"/>
