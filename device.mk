@@ -60,6 +60,7 @@ PRODUCT_COPY_FILES += \
 	device/oppo/find5/configs/init.find5.rc:root/init.find5.rc \
 	device/oppo/find5/configs/init.find5.usb.rc:root/init.find5.usb.rc \
 	device/oppo/find5/configs/init.recovery.find5.rc:root/init.recovery.find5.rc \
+	device/oppo/find5/configs/tpupdate.rle:root/tpupdate.rle \
 	device/oppo/find5/configs/fstab.find5:root/fstab.find5 \
 	device/oppo/find5/configs/ueventd.find5.rc:root/ueventd.find5.rc \
 	device/oppo/find5/configs/media_profiles.xml:system/etc/media_profiles.xml \
