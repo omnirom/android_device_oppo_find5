@@ -139,12 +139,21 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.sf.lcd_density=480
 
+# qcom
+PRODUCT_PROPERTY_OVERRIDES += \
+	ro.qc.sdk.audio.ssr=false \
+	ro.qc.sdk.audio.fluencetype=none \
+	ro.qc.sdk.sensors.gestures=false
+
 # Audio Configuration
 PRODUCT_PROPERTY_OVERRIDES += \
 	persist.audio.handset.mic=dmic \
 	persist.audio.fluence.mode=endfire \
 	persist.audio.lowlatency.rec=false \
-	af.resampler.quality=4
+	af.resampler.quality=4 \
+	lpa.decode=false \
+	tunnel.decode=false \
+	tunnel.audiovideo.decode=true
 
 # Debugging
 PRODUCT_PROPERTY_OVERRIDES += \
