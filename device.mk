@@ -57,6 +57,7 @@ PRODUCT_COPY_FILES += \
 	device/oppo/find5/thermald-find5.conf:system/etc/thermald.conf
 
 PRODUCT_COPY_FILES += \
+	device/oppo/find5/configs/default.prop:root/default.prop \
 	device/oppo/find5/configs/init.find5.rc:root/init.find5.rc \
 	device/oppo/find5/configs/init.find5.usb.rc:root/init.find5.usb.rc \
 	device/oppo/find5/configs/init.recovery.find5.rc:root/init.recovery.find5.rc \
@@ -125,11 +126,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.nfc.xml:system/etc/permissions/android.hardware.nfc.xml
 
 # NFCEE access control
-ifeq ($(TARGET_BUILD_VARIANT),user)
-    NFCEE_ACCESS_PATH := device/oppo/find5/configs/nfcee_access.xml
-else
-    NFCEE_ACCESS_PATH := device/oppo/find5/configs/nfcee_access_debug.xml
-endif
+NFCEE_ACCESS_PATH := device/oppo/find5/configs/nfcee_access.xml
 PRODUCT_COPY_FILES += \
     $(NFCEE_ACCESS_PATH):system/etc/nfcee_access.xml
 
@@ -272,29 +269,13 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.extension_library=/system/lib/libqc-opt.so
 
-# for bugmailer
-PRODUCT_PACKAGES += send_bug
-PRODUCT_COPY_FILES += \
-	system/extras/bugmailer/bugmailer.sh:system/bin/bugmailer.sh \
-	system/extras/bugmailer/send_bug:system/bin/send_bug
-
 # other apps
 PRODUCT_PACKAGES += \
-    Apollo \
-   	DSPManager \
-   	libcyanogen-dsp \
     libncurses \
     bash \
-    CMFileManager \
     PinyinIME \
-    LockClock \
-    Torch \
-	CMTorch \
-	Trebuchet \
 	Find5Parts
 	
 $(call inherit-product, frameworks/native/build/phone-xxhdpi-2048-dalvik-heap.mk)
 $(call inherit-product, frameworks/native/build/phone-xxhdpi-2048-hwui-memory.mk)
 
-# This is the find5-specific audio package
-$(call inherit-product, frameworks/base/data/sounds/AudioPackage10.mk)
