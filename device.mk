@@ -28,9 +28,6 @@ DEVICE_PACKAGE_OVERLAYS := device/oppo/find5/overlay
 PRODUCT_AAPT_CONFIG := normal hdpi xhdpi xxhdpi
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 
-PRODUCT_PACKAGES := \
-	lights.msm8960
-
 PRODUCT_PACKAGES += \
     charger_res_images \
     charger
