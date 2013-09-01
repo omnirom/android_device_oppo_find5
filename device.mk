@@ -267,8 +267,16 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # other apps
 PRODUCT_PACKAGES += \
+    Apollo \
+   	DSPManager \
+   	libcyanogen-dsp \
     libncurses \
     bash \
+    CMFileManager \
+    LockClock \
+    Torch \
+	CMTorch \
+	Trebuchet \
 	Find5Parts
 	
 $(call inherit-product, frameworks/native/build/phone-xxhdpi-2048-dalvik-heap.mk)
