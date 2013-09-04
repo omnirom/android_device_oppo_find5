@@ -61,8 +61,9 @@ PRODUCT_COPY_FILES += \
 	device/oppo/find5/configs/fstab.find5:root/fstab.find5 \
 	device/oppo/find5/configs/ueventd.find5.rc:root/ueventd.find5.rc \
 	device/oppo/find5/configs/media_profiles.xml:system/etc/media_profiles.xml \
-	device/oppo/find5/configs/media_codecs.xml:system/etc/media_codecs.xml
-
+	device/oppo/find5/configs/media_codecs.xml:system/etc/media_codecs.xml \
+	device/oppo/find5/configs/audio_effects.conf:system/etc/audio_effects.conf
+	
 PRODUCT_COPY_FILES += \
 	device/oppo/find5/init.qcom.post_boot.sh:system/etc/init.qcom.post_boot.sh \
 	device/oppo/find5/init.qcom.post_fs.sh:system/etc/init.qcom.post_fs.sh \
