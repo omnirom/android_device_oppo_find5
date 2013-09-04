@@ -32,7 +32,7 @@
     <!-- Disable face detection on the front camera -->
     <bool name="noFaceDetectOnFrontCamera">false</bool>
     <!-- Use ZSL mode for Qualcomm cameras -->
-    <bool name="enableZSL">false</bool>
+    <bool name="enableZSL">true</bool>
     <!-- Magic for enabling ZSL on Samsung cameras -->
     <bool name="sendMagicSamsungZSLCommand">false</bool>
     <!-- Decode YV16 format on Samsung HDR hardware -->
