@@ -279,6 +279,15 @@ PRODUCT_PACKAGES += \
 	CMTorch \
 	Trebuchet \
 	Find5Parts
+
+# selinux
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.build.selinux=1 \
+    persist.sys.root_access=1
+
+# SELinux filesystem labels
+PRODUCT_COPY_FILES += \
+    device/oppo/find5/configs/50selinuxrelabel:system/etc/init.d/50selinuxrelabel
 	
 $(call inherit-product, frameworks/native/build/phone-xxhdpi-2048-dalvik-heap.mk)
 $(call inherit-product, frameworks/native/build/phone-xxhdpi-2048-hwui-memory.mk)
