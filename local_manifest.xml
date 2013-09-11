@@ -31,6 +31,9 @@
   <remove-project name="AOKP/frameworks_base" path="frameworks/base"/>
   <project path="frameworks/base" name="frameworks_base" remote="maxwen" revision="jb-mr2" />
 
+  <remove-project path="frameworks/av" name="AOKP/frameworks_av" remote="aokp" />
+  <project path="frameworks/av" name="frameworks_av" remote="maxwen" revision="jb-mr2" groups="pdk" />
+    
   <remove-project path="vendor/aokp" name="AOKP/vendor_aokp" />
   <project path="vendor/aokp" name="vendor_aokp" remote="maxwen" revision="jb-mr2" />
 
@@ -57,9 +60,18 @@
 
   <remove-project path="packages/apps/Gallery2" name="AOKP/packages_apps_Gallery2" />
   <project path="packages/apps/Gallery2" name="android_packages_apps_Gallery2" remote="maxwen" revision="cm-10.2" />
-    
+
+  <remove-project path="packages/apps/Dialer" name="platform/packages/apps/Dialer" /> 
+  <project path="packages/apps/Dialer" name="packages_apps_Dialer" remote="maxwen" revision="jb-mr2" />
+
+  <remove-project path="packages/apps/ContactsCommon" name="platform/packages/apps/ContactsCommon" /> 
+  <project path="packages/apps/ContactsCommon" name="android_packages_apps_ContactsCommon" remote="maxwen" revision="cm-10.2" />
+
+  <remove-project path="packages/inputmethods/LatinIME" name="AOKP/packages_input_LatinIME" />
+  <project path="packages/inputmethods/LatinIME" name="packages_input_LatinIME" remote="maxwen" revision="jb-mr2" />
+  
   <remove-project path="packages/apps/MusicFX" name="platform/packages/apps/MusicFX" />
-  <project path="packages/apps/MusicFX" name="packages_apps_MusicFX" remote="maxwen" revision="jb-mr1"/>  
+  <project path="packages/apps/MusicFX" name="packages_apps_MusicFX" remote="maxwen" revision="jb-mr2"/>  
   <project path="packages/apps/Apollo" name="android_packages_apps_Apollo" remote="maxwen" revision="cm-10.1"/>
   <project path="packages/apps/DSPManager" name="android_packages_apps_DSPManager" remote="maxwen" revision="cm-10.2" />
       
@@ -79,7 +91,13 @@
   <!-- CM repos -->
   <!--<remove-project path="frameworks/native" name="AOKP/frameworks_native" remote="aokp" />
   <project path="frameworks/native" name="CyanogenMod/android_frameworks_native" remote="cm" revision="cm-10.2" groups="pdk" />-->
-    
+
+  <remove-project path="external/libselinux" name="platform/external/libselinux" groups="pdk" />
+  <project path="external/libselinux" name="CyanogenMod/android_external_libselinux" remote="cm" revision="cm-10.2" groups="pdk" />
+
+  <project path="external/Focal" name="CyanogenMod/android_external_Focal" remote="cm" revision="cm-10.2"/>
+  <project path="packages/apps/Focal" name="CyanogenMod/android_packages_apps_Focal" remote="cm" revision="cm-10.2" />
+        
   <remove-project path="packages/apps/PackageInstaller" name="AOKP/packages_apps_PackageInstaller" />
   <project path="packages/apps/PackageInstaller" name="CyanogenMod/android_packages_apps_PackageInstaller" remote="cm" revision="cm-10.2" />
           
@@ -105,7 +123,6 @@
   <remove-project path="packages/apps/Gallery" name="platform/packages/apps/Gallery" />
   <remove-project path="packages/apps/Camera" name="AOKP/packages_apps_Camera" />
   <remove-project path="packages/apps/LegacyCamera" name="platform/packages/apps/LegacyCamera" />
-  <remove-project path="packages/apps/Dialer" name="platform/packages/apps/Dialer" />
   
 </manifest>
 
