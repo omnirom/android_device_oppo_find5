@@ -65,9 +65,7 @@ PRODUCT_COPY_FILES += \
 	device/oppo/find5/configs/audio_effects.conf:system/etc/audio_effects.conf
 	
 PRODUCT_COPY_FILES += \
-	device/oppo/find5/init.qcom.post_boot.sh:system/etc/init.qcom.post_boot.sh \
 	device/oppo/find5/init.qcom.post_fs.sh:system/etc/init.qcom.post_fs.sh \
-	device/oppo/find5/init.qcom.efs.sync.sh:system/etc/init.qcom.efs.sync.sh \
 	device/oppo/find5/init.qcom.mdm_links.sh:system/etc/init.qcom.mdm_links.sh \
 	device/oppo/find5/init.qcom.modem_links.sh:system/etc/init.qcom.modem_links.sh
 
