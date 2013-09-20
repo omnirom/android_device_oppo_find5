@@ -16,8 +16,8 @@
 
 TARGET_SPECIFIC_HEADER_PATH := device/oppo/find5/include
 
-TARGET_GLOBAL_CFLAGS += -mfpu=neon -mfloat-abi=softfp -DQCOM_HARDWARE -DDISABLE_HW_ID_MATCH_CHECK
-TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp -DQCOM_HARDWARE -DDISABLE_HW_ID_MATCH_CHECK
+TARGET_GLOBAL_CFLAGS += -mfpu=neon -mfloat-abi=softfp
+TARGET_GLOBAL_CPPFLAGS += -mfpu=neon -mfloat-abi=softfp
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
 TARGET_CPU_SMP := true
@@ -25,7 +25,6 @@ TARGET_CPU_VARIANT := krait
 TARGET_ARCH := arm
 TARGET_ARCH_VARIANT := armv7-a-neon
 ARCH_ARM_HAVE_TLS_REGISTER := true
-BOARD_USES_QCOM_HARDWARE := true
 
 # Krait optimizations
 TARGET_USE_KRAIT_BIONIC_OPTIMIZATION := true
@@ -73,12 +72,15 @@ WIFI_DRIVER_FW_PATH_AP           := "ap"
 
 BOARD_EGL_CFG := device/oppo/find5/configs/egl.cfg
 
+# global
+BOARD_USES_QCOM_HARDWARE := true
+TARGET_USES_QCOM_BSP := true
+COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE -DQCOM_BSP
+
 # Display
 TARGET_QCOM_DISPLAY_VARIANT := caf
 USE_OPENGL_RENDERER := true
 TARGET_USES_ION := true
-# needed for latest CAF kernel
-COMMON_GLOBAL_CFLAGS += -DNEW_ION_API 
 TARGET_USES_C2D_COMPOSITION := true
 
 # Recovery
@@ -117,14 +119,12 @@ TARGET_RELEASETOOLS_EXTENSIONS := device/oppo/find5
 
 BOARD_CHARGER_ENABLE_SUSPEND := true
 
-# Audio
+# Audio/media
 BOARD_USES_ALSA_AUDIO:= true
 TARGET_QCOM_AUDIO_VARIANT := caf
-TARGET_USES_QCOM_MM_AUDIO := true
-TARGET_USES_QCOM_COMPRESSED_AUDIO := true
-BOARD_AUDIO_CAF_LEGACY_INPUT_BUFFERSIZE := true
-
 BOARD_HAVE_LOW_LATENCY_AUDIO := true
+TARGET_USES_QCOM_COMPRESSED_AUDIO := true
+TARGET_QCOM_MEDIA_VARIANT := caf
 
 -include vendor/oppo/find5/BoardConfigVendor.mk
 
