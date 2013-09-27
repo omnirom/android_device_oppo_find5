@@ -121,6 +121,12 @@ BOARD_USES_ALSA_AUDIO:= true
 TARGET_QCOM_AUDIO_VARIANT := caf
 BOARD_HAVE_LOW_LATENCY_AUDIO := true
 TARGET_QCOM_MEDIA_VARIANT := caf
+BOARD_USES_FLUENCE_INCALL := true
+# maxwen: this is actually only needed because
+# of a bug in audio-caf when BOARD_USES_FLUENCE_INCALL := true
+BOARD_USES_SEPERATED_AUDIO_INPUT := true
+#maxwen: needed for different mic for camcorder
+BOARD_USES_SEPERATED_CAMCORDER := true
 
 -include vendor/oppo/find5/BoardConfigVendor.mk
 
