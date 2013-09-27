@@ -1278,7 +1278,7 @@ SectionDevice
 		'IIR1 Enable Band4':1:1
 		'IIR1 Enable Band5':1:1
 		'RX1 MIX2 INP1':0:IIR1
-		'RX1 Digital Volume':1:76
+		'RX1 Digital Volume':1:72
 		'RX1 HPF Switch':1:1
 	EndSequence
 
@@ -2150,30 +2150,37 @@ SectionDevice
 
 EndSection
 
+# maxwen: copy of DMIC VOICE RECO Endfire
 SectionDevice
 	Name "Line"
-	Comment "Speaker Tx device"
+	Comment "dual mic Tx device"
 
 	EnableSequence
-		'SLIM_0_TX Channels':0:One
+		'SLIM_0_TX Channels':0:Two
 		'SLIM TX7 MUX':0:DEC4
 		'DEC4 MUX':0:ADC3
-		'DEC4 Volume':1:68
 		'ADC3 Volume':1:100
+    'DEC4 Volume':1:68
+		'SLIM TX8 MUX':0:DEC3
+		'DEC3 MUX':0:ADC4
+		'ADC4 Volume':1:100
+		'DEC3 Volume':1:68
 		'MICBIAS1 CAPLESS Switch':1:1
 	EndSequence
 
 	DisableSequence
 		'SLIM TX7 MUX':0:ZERO
+		'SLIM TX8 MUX':0:ZERO
 		'DEC4 MUX':0:ZERO
-		'DEC4 Volume':1:0
+		'DEC3 MUX':0:ZERO
 		'ADC3 Volume':1:0
+		'ADC4 Volume':1:0
+		'DEC4 Volume':1:0
+		'DEC3 Volume':1:0
 		'MICBIAS1 CAPLESS Switch':1:0
-		'IIR1 INP1 Volume':1:0
-		'IIR1 INP1 MUX':0:ZERO
 	EndSequence
 
-	ACDBID	11:2
+	ACDBID	41:2
 	EffectsMixerCTL "SRS TruMedia"
 
 EndSection
@@ -2317,34 +2324,37 @@ SectionDevice
 
 EndSection
 
+# maxwen: copy of DUAL MIC
 SectionDevice
 	Name "DMIC Endfire"
-	Comment "Dual MIC Endfire Tx device"
+	Comment "dual mic Tx device"
 
 	EnableSequence
-		'SLIM TX7 MUX':0:DEC7
-		'DEC7 MUX':0:DMIC1
-		'SLIM TX8 MUX':0:DEC9
-		'DEC9 MUX':0:DMIC4
-		'MICBIAS1 CAPLESS Switch':1:1
-		'MICBIAS3 CAPLESS Switch':1:1
 		'SLIM_0_TX Channels':0:Two
-		'IIR1 INP1 Volume':1:50
-		'IIR1 INP1 MUX':0:DEC7
+		'SLIM TX7 MUX':0:DEC4
+		'DEC4 MUX':0:ADC3
+		'ADC3 Volume':1:100
+		'DEC4 Volume':1:68
+		'SLIM TX8 MUX':0:DEC3
+		'DEC3 MUX':0:ADC4
+		'DEC3 Volume':1:68
+		'ADC4 Volume':1:100
+		'MICBIAS1 CAPLESS Switch':1:1
 	EndSequence
 
 	DisableSequence
 		'SLIM TX7 MUX':0:ZERO
-		'DEC7 MUX':0:ZERO
 		'SLIM TX8 MUX':0:ZERO
-		'DEC9 MUX':0:ZERO
+		'DEC4 MUX':0:ZERO
+		'DEC3 MUX':0:ZERO
+		'DEC4 Volume':1:0
+		'DEC3 Volume':1:0
+		'ADC3 Volume':1:0
+		'ADC4 Volume':1:0
 		'MICBIAS1 CAPLESS Switch':1:0
-		'MICBIAS3 CAPLESS Switch':1:0
-		'IIR1 INP1 Volume':1:0
-		'IIR1 INP1 MUX':0:ZERO
 	EndSequence
 
-	ACDBID	6:2
+	ACDBID	51:2
 	EffectsMixerCTL "SRS TruMedia"
 
 EndSection
@@ -2375,87 +2385,102 @@ SectionDevice
 
 EndSection
 
+# maxwen: copy of LineFluenceV5
 SectionDevice
 	Name "Speaker DMIC Endfire"
-	Comment "Dual MIC Endfire Tx device"
+	Comment "Speaker FluenceV5 Tx device"
 
 	EnableSequence
-		'SLIM TX7 MUX':0:DEC7
-		'DEC7 MUX':0:DMIC1
-		'SLIM TX8 MUX':0:DEC9
-		'DEC9 MUX':0:DMIC4
+		'SLIM_0_TX Channels':0:One
+		'SLIM TX7 MUX':0:DEC3
+		'DEC3 MUX':0:ADC4
+		'DEC3 Volume':1:68
+		'ADC4 Volume':1:100
 		'MICBIAS1 CAPLESS Switch':1:1
-		'MICBIAS3 CAPLESS Switch':1:1
-		'SLIM_0_TX Channels':0:Two
 	EndSequence
 
 	DisableSequence
 		'SLIM TX7 MUX':0:ZERO
-		'DEC7 MUX':0:ZERO
-		'SLIM TX8 MUX':0:ZERO
-		'DEC9 MUX':0:ZERO
+		'DEC3 MUX':0:ZERO
+		'DEC3 Volume':1:0
+		'ADC4 Volume':1:0
 		'MICBIAS1 CAPLESS Switch':1:0
-		'MICBIAS3 CAPLESS Switch':1:0
+		'IIR1 INP1 Volume':1:0
+		'IIR1 INP1 MUX':0:ZERO
 	EndSequence
 
-	ACDBID	13:2
+	ACDBID	52:2
 	EffectsMixerCTL "SRS TruMedia"
 
 EndSection
 
+# maxwen: copy of DMIC VOICE RECO Endfire
 SectionDevice
-        Name "Handset DMIC Stereo"
-        Comment "Handset Dual MIC Stereo Tx device"
+	Name "Handset DMIC Stereo"
+	Comment "dual mic Tx device"
 
-        EnableSequence
-                'SLIM TX7 MUX':0:DEC7
-                'DEC7 MUX':0:DMIC1
-                'SLIM TX8 MUX':0:DEC9
-                'DEC9 MUX':0:DMIC4
-                'MICBIAS1 CAPLESS Switch':1:1
-                'MICBIAS3 CAPLESS Switch':1:1
-                'SLIM_0_TX Channels':0:Two
-        EndSequence
+	EnableSequence
+		'SLIM_0_TX Channels':0:Two
+		'SLIM TX7 MUX':0:DEC4
+		'DEC4 MUX':0:ADC3
+		'ADC3 Volume':1:100
+    'DEC4 Volume':1:68
+		'SLIM TX8 MUX':0:DEC3
+		'DEC3 MUX':0:ADC4
+		'ADC4 Volume':1:100
+		'DEC3 Volume':1:68
+		'MICBIAS1 CAPLESS Switch':1:1
+	EndSequence
 
-        DisableSequence
-                'SLIM TX7 MUX':0:ZERO
-                'DEC7 MUX':0:ZERO
-                'SLIM TX8 MUX':0:ZERO
-                'DEC9 MUX':0:ZERO
-                'MICBIAS1 CAPLESS Switch':1:0
-                'MICBIAS3 CAPLESS Switch':1:0
-        EndSequence
+	DisableSequence
+		'SLIM TX7 MUX':0:ZERO
+		'SLIM TX8 MUX':0:ZERO
+		'DEC4 MUX':0:ZERO
+		'DEC3 MUX':0:ZERO
+		'ADC3 Volume':1:0
+		'ADC4 Volume':1:0
+		'DEC4 Volume':1:0
+		'DEC3 Volume':1:0
+		'MICBIAS1 CAPLESS Switch':1:0
+	EndSequence
 
-        ACDBID  34:2
-        EffectsMixerCTL "SRS TruMedia"
+	ACDBID	41:2
+	EffectsMixerCTL "SRS TruMedia"
 
 EndSection
 
+# maxwen: copy of DMIC VOICE RECO Endfire
 SectionDevice
-        Name "Speaker DMIC Stereo"
-        Comment "Speaker Dual MIC Stereo Tx device"
+	Name "Speaker DMIC Stereo"
+	Comment "dual mic Tx device"
 
-        EnableSequence
-                'SLIM TX7 MUX':0:DEC7
-                'DEC7 MUX':0:DMIC1
-                'SLIM TX8 MUX':0:DEC9
-                'DEC9 MUX':0:DMIC4
-                'MICBIAS1 CAPLESS Switch':1:1
-                'MICBIAS3 CAPLESS Switch':1:1
-                'SLIM_0_TX Channels':0:Two
-        EndSequence
+	EnableSequence
+		'SLIM_0_TX Channels':0:Two
+		'SLIM TX7 MUX':0:DEC4
+		'DEC4 MUX':0:ADC3
+		'ADC3 Volume':1:100
+    'DEC4 Volume':1:68
+		'SLIM TX8 MUX':0:DEC3
+		'DEC3 MUX':0:ADC4
+		'ADC4 Volume':1:100
+		'DEC3 Volume':1:68
+		'MICBIAS1 CAPLESS Switch':1:1
+	EndSequence
 
-        DisableSequence
-                'SLIM TX7 MUX':0:ZERO
-                'DEC7 MUX':0:ZERO
-                'SLIM TX8 MUX':0:ZERO
-                'DEC9 MUX':0:ZERO
-                'MICBIAS1 CAPLESS Switch':1:0
-                'MICBIAS3 CAPLESS Switch':1:0
-        EndSequence
+	DisableSequence
+		'SLIM TX7 MUX':0:ZERO
+		'SLIM TX8 MUX':0:ZERO
+		'DEC4 MUX':0:ZERO
+		'DEC3 MUX':0:ZERO
+		'ADC3 Volume':1:0
+		'ADC4 Volume':1:0
+		'DEC4 Volume':1:0
+		'DEC3 Volume':1:0
+		'MICBIAS1 CAPLESS Switch':1:0
+	EndSequence
 
-        ACDBID  35:2
-        EffectsMixerCTL "SRS TruMedia"
+	ACDBID	41:2
+	EffectsMixerCTL "SRS TruMedia"
 
 EndSection
 
