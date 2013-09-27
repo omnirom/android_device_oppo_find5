@@ -41,9 +41,6 @@ BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.hardware=find5 lpj=67677 user_debug=31 msm_rtb.filter=0x3F ehci-hcd.park=3
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x02000000
 
-# Kernel
-TARGET_KERNEL_CONFIG := aokp_find5_defconfig
-
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_QCOM := true
@@ -127,7 +124,28 @@ TARGET_QCOM_MEDIA_VARIANT := caf
 
 -include vendor/oppo/find5/BoardConfigVendor.mk
 
-BOARD_HAS_NO_SELECT_BUTTON := true
+# selinux - maxwen: disabled for now
+#BOARD_SEPOLICY_DIRS := \
+#       device/oppo/find5/sepolicy
 
-# dont build docs
-DISABLE_DROIDDOC := true 
+#BOARD_SEPOLICY_UNION := \
+#       app.te \
+#      bluetooth.te \
+#       compatibility.te \
+#       device.te \
+#       domain.te \
+#       drmserver.te \
+#       file.te \
+#       file_contexts \
+#       hci_init.te \
+#       init_shell.te \
+#       keystore.te \
+#       mediaserver.te \
+#       kickstart.te \
+#       nfc.te \
+#       rild.te \
+#       surfaceflinger.te \
+#       system.te \
+#       ueventd.te \
+#       wpa.te
+

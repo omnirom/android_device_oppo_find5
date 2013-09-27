@@ -17,16 +17,27 @@
 # Sample: This is where we'd set a backup provider if we had one
 # $(call inherit-product, device/sample/products/backup_overlay.mk)
 
-# Inherit from the common Open Source product configuration
-$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+# Get the long list of APNs
+PRODUCT_COPY_FILES := device/sample/etc/apns-full-conf.xml:system/etc/apns-conf.xml
 
-PRODUCT_NAME := full_find5
+# Inherit from the common Open Source product configuration
+$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
+
+# Inherit from our custom product configuration
+$(call inherit-product, vendor/custom/config/common.mk)
+
+# Inherit from hardware-specific part of the product configuration
+$(call inherit-product, device/oppo/find5/device.mk)
+
+PRODUCT_NAME := custom_find5
 PRODUCT_DEVICE := find5
 PRODUCT_BRAND := Android
 PRODUCT_MODEL := Find 5
 PRODUCT_MANUFACTURER := Oppo
-PRODUCT_RESTRICT_VENDOR_FILES := false
 
-# Inherit from hardware-specific part of the product configuration
-$(call inherit-product, device/oppo/find5/device.mk)
+# Kernel inline build
+TARGET_KERNEL_CONFIG := find5_defconfig
+TARGET_VARIANT_CONFIG := find5_defconfig
+TARGET_SELINUX_CONFIG := find5_defconfig
+
 $(call inherit-product-if-exists, vendor/oppo/find5/find5-vendor.mk)

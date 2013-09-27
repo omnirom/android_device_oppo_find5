@@ -233,35 +233,13 @@
     <!-- Flag indicating if the speed up audio on mt call code should be executed -->
     <bool name="config_speed_up_audio_on_mt_calls">true</bool>
 
-    <!-- Hardware 'face' keys present on the device, stored as a bit field.
-         This integer should equal the sum of the corresponding value for each
-         of the following keys present:
-             1 - Home
-             2 - Back
-             4 - Menu
-             8 - Assistant (search)
-            16 - App switch
-         For example, a device with Home, Back and Menu keys would set this
-         config to 7. -->
-    <integer name="config_deviceHardwareKeys">7</integer>
-
-    <!-- empty string to disable, or like: /sys/kernel/fast_charge/force_fast_charge
-         it is disabled by default so devices need to add an overlay to enable-->
-    <string name="config_fastChargePath" translatable="false">/sys/kernel/fast_charge/force_fast_charge</string>
-
-    <!-- If this is true, the CM torch will be used. -->
-    <bool name="config_useCMTorch">true</bool>
-
     <!-- Default value for led color when battery is low on charge: <= 14% -->
     <integer name="config_notificationsBatteryLowARGB">0xFFFF0000</integer>
 
     <!-- Default value for led color when battery is medium charged: 15-89% -->
     <integer name="config_notificationsBatteryMediumARGB">0xFFFF0000</integer>
 
-    <!-- Default value for led color when batter is almost charged: 90-99% -->
-    <integer name="config_notificationsBatteryAlmostARGB">0xFFFF6600</integer>
-
-    <!-- Default value for led color when battery is fully charged: 100% -->
+    <!-- Default value for led color when battery is fully charged: 90-100% -->
     <integer name="config_notificationsBatteryFullARGB">0xFF00FF00</integer> 
 
     <!-- Indicate whether closing the lid causes the device to go to sleep and opening
