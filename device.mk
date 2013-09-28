@@ -55,6 +55,7 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_COPY_FILES += \
 	device/oppo/find5/configs/init.find5.rc:root/init.find5.rc \
+	device/oppo/find5/configs/init.superuser.rc:root/init.superuser.rc \
 	device/oppo/find5/configs/init.find5.usb.rc:root/init.find5.usb.rc \
 	device/oppo/find5/configs/init.recovery.find5.rc:root/init.recovery.find5.rc \
 	device/oppo/find5/configs/tpupdate.rle:root/tpupdate.rle \
@@ -153,7 +154,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	service.adb.enable=1 \
 	sys.usb.config=adb \
 	ro.debuggable=1 \
-	persist.service.adb.enable=1
+	persist.service.adb.enable=1 \
+	persist.sys.root_access=1
 
 # Do not power down SIM card when modem is sent to Low Power Mode.
 PRODUCT_PROPERTY_OVERRIDES += \
