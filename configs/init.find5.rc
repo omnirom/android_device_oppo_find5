@@ -15,6 +15,7 @@
 #
 
 import init.find5.usb.rc
+import init.superuser.rc
 
 on early-init
     mkdir /system

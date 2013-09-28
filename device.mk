@@ -55,6 +55,7 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_COPY_FILES += \
 	device/oppo/find5/configs/init.find5.rc:root/init.find5.rc \
+	device/oppo/find5/configs/init.superuser.rc:root/init.superuser.rc \
 	device/oppo/find5/configs/init.find5.usb.rc:root/init.find5.usb.rc \
 	device/oppo/find5/configs/init.recovery.find5.rc:root/init.recovery.find5.rc \
 	device/oppo/find5/configs/tpupdate.rle:root/tpupdate.rle \
