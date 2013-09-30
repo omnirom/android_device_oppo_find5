@@ -126,6 +126,7 @@ BOARD_USES_FLUENCE_INCALL := true
 # of a bug in audio-caf when BOARD_USES_FLUENCE_INCALL := true
 # to enter the default else path
 BOARD_USES_SEPERATED_AUDIO_INPUT := true
+BOARD_USES_SEPERATED_VOICE_SPEAKER := true
 
 -include vendor/oppo/find5/BoardConfigVendor.mk
 
