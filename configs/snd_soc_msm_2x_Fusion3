@@ -2220,6 +2220,41 @@ SectionDevice
 
 EndSection
 
+# maxwen copy of DMIC VOICE RECO Endfire
+SectionDevice
+	Name "Voice Recognition"
+	Comment "dual mic Tx device"
+
+	EnableSequence
+		'SLIM_0_TX Channels':0:Two
+		'SLIM TX7 MUX':0:DEC4
+		'DEC4 MUX':0:ADC3
+		'ADC3 Volume':1:100
+    'DEC4 Volume':1:68
+		'SLIM TX8 MUX':0:DEC3
+		'DEC3 MUX':0:ADC4
+		'ADC4 Volume':1:100
+		'DEC3 Volume':1:68
+		'MICBIAS1 CAPLESS Switch':1:1
+	EndSequence
+
+	DisableSequence
+		'SLIM TX7 MUX':0:ZERO
+		'SLIM TX8 MUX':0:ZERO
+		'DEC4 MUX':0:ZERO
+		'DEC3 MUX':0:ZERO
+		'ADC3 Volume':1:0
+		'ADC4 Volume':1:0
+		'DEC4 Volume':1:0
+		'DEC3 Volume':1:0
+		'MICBIAS1 CAPLESS Switch':1:0
+	EndSequence
+
+	ACDBID	41:2
+	EffectsMixerCTL "SRS TruMedia"
+
+EndSection
+
 SectionDevice
 	Name "LineFluenceV5"
 	Comment "Speaker FluenceV5 Tx device"
