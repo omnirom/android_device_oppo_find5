@@ -137,8 +137,6 @@ set_light_backlight(struct light_device_t* dev,
     
     pthread_mutex_lock(&g_lock);
     err = write_int(LCD_FILE, brightness);
-    err = write_int(BUTTONS_FILE, brightness);
-
     pthread_mutex_unlock(&g_lock);
     
     return err;
@@ -294,13 +292,11 @@ set_light_touchkeys(struct light_device_t* dev,
         struct light_state_t const* state)
 {
     int err = 0;
-#if 0
     int brightness = rgb_to_brightness(state);
 
     pthread_mutex_lock(&g_lock);
     write_int(BUTTONS_FILE, brightness);
     pthread_mutex_unlock(&g_lock);
-#endif    
     return err;
 }
 
