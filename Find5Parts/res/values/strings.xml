@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Advanced settings</string> 
+    <string name="app_name">Find5</string> 
 
     <string name="category_s2w_title">Sweep2Wake</string>
     <string name="s2w_switch_title_head">Enable sweep to wake</string>
@@ -21,4 +21,7 @@
     <string name="vib_strength_title_head">Strength</string>
     <string name="vib_strength_summary_head">Define the strength of the vibrator</string>
     <string name="vib_test">Test</string>
+    <string name="category_suspend_cap">Suspend Limits</string>
+    <string name="suspend_cap_freq">Core frequeny limit</string>
+    <string name="suspend_cap_core">Core number limit</string>
 </resources>

@@ -1,4 +1,21 @@
-package com.cyanogenmod.settings.device;
+/*
+* Copyright (C) 2013 The OmniROM Project
+*
+* This program is free software: you can redistribute it and/or modify
+* it under the terms of the GNU General Public License as published by
+* the Free Software Foundation, either version 2 of the License, or
+* (at your option) any later version.
+*
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+* GNU General Public License for more details.
+*
+* You should have received a copy of the GNU General Public License
+* along with this program. If not, see <http://www.gnu.org/licenses/>.
+*
+*/
+package org.omnirom.omnigears.device;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -14,12 +31,12 @@ public class DoubleTap2WakeBarrier implements OnPreferenceChangeListener {
         return Utils.fileWritable(FILE);
     }
 
-	public static String getValue(Context context) {
-		String value = Utils.getFileValue(FILE, "3690");
+    public static String getValue(Context context) {
+        String value = Utils.getFileValue(FILE, "3690");
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
         return sharedPrefs.getString(DeviceSettings.KEY_DOUBLETAP2WAKE_BARRIER, value);
-	}
-	
+    }
+
     /**
      * Restore Sweep2Wake stroke setting from SharedPreferences. (Write to kernel.)
      * @param context       The context to read the SharedPreferences from
@@ -29,7 +46,7 @@ public class DoubleTap2WakeBarrier implements OnPreferenceChangeListener {
             return;
         }
 
-		String value = getValue(context);
+        String value = getValue(context);
         Utils.writeValue(FILE, value);
     }
 
