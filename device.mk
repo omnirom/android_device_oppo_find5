@@ -272,6 +272,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 #PRODUCT_COPY_FILES += \
 #    device/oppo/find5/configs/50selinuxrelabel:system/etc/init.d/50selinuxrelabel
 	
+# other apps
+PRODUCT_PACKAGES += \
+	Find5Parts
+
 $(call inherit-product, frameworks/native/build/phone-xxhdpi-2048-dalvik-heap.mk)
 $(call inherit-product, frameworks/native/build/phone-xxhdpi-2048-hwui-memory.mk)
 
