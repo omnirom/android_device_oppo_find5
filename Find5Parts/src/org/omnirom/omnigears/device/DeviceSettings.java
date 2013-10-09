@@ -1,4 +1,21 @@
-package com.cyanogenmod.settings.device;
+/*
+* Copyright (C) 2013 The OmniROM Project
+*
+* This program is free software: you can redistribute it and/or modify
+* it under the terms of the GNU General Public License as published by
+* the Free Software Foundation, either version 2 of the License, or
+* (at your option) any later version.
+*
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+* GNU General Public License for more details.
+*
+* You should have received a copy of the GNU General Public License
+* along with this program. If not, see <http://www.gnu.org/licenses/>.
+*
+*/
+package org.omnirom.omnigears.device;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -21,7 +38,9 @@ public class DeviceSettings extends PreferenceActivity  {
     public static final String KEY_DOUBLETAP2WAKE_DURATION = "s2w_double_tap_duration";
     public static final String KEY_DOUBLETAP2WAKE_BARRIER = "s2w_double_tap_barrier";
     public static final String KEY_VIBSTRENGTH = "vib_strength";
-    
+    public static final String KEY_SUSPEND_CAP_FREQ = "suspend_cap_freq";
+    public static final String KEY_SUSPEND_CAP_CORE = "suspend_cap_core";
+
     private TwoStatePreference mS2WSwitch;
     private ListPreference mS2WStroke;
     private ListPreference mS2WLength;
@@ -29,7 +48,9 @@ public class DeviceSettings extends PreferenceActivity  {
     private ListPreference mDoubleTap2WakeDuration;
     private ListPreference mDoubleTap2WakeBarrier;
     private VibratorStrengthPreference mVibratorStrength;
-            
+    private SuspendFreqCap mSuspendFreqCap;
+    private SuspendCoreCap mSuspendCoreCap;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,18 +76,28 @@ public class DeviceSettings extends PreferenceActivity  {
         mDoubleTap2WakeSwitch.setChecked(DoubleTap2WakeSwitch.isEnabled(this));
         mDoubleTap2WakeSwitch.setOnPreferenceChangeListener(new DoubleTap2WakeSwitch());
 
-		mDoubleTap2WakeDuration = (ListPreference) findPreference(KEY_DOUBLETAP2WAKE_DURATION);
+        mDoubleTap2WakeDuration = (ListPreference) findPreference(KEY_DOUBLETAP2WAKE_DURATION);
         mDoubleTap2WakeDuration.setEnabled(DoubleTap2WakeDuration.isSupported());
         mDoubleTap2WakeDuration.setValue(squashDurationValue(DoubleTap2WakeDuration.getValue(this)));
         mDoubleTap2WakeDuration.setOnPreferenceChangeListener(new DoubleTap2WakeDuration());
 
-		mDoubleTap2WakeBarrier = (ListPreference) findPreference(KEY_DOUBLETAP2WAKE_BARRIER);
+        mDoubleTap2WakeBarrier = (ListPreference) findPreference(KEY_DOUBLETAP2WAKE_BARRIER);
         mDoubleTap2WakeBarrier.setEnabled(DoubleTap2WakeBarrier.isSupported());
         mDoubleTap2WakeBarrier.setValue(DoubleTap2WakeBarrier.getValue(this));
         mDoubleTap2WakeBarrier.setOnPreferenceChangeListener(new DoubleTap2WakeBarrier());
 
-		mVibratorStrength = (VibratorStrengthPreference) findPreference(KEY_VIBSTRENGTH);
+        mVibratorStrength = (VibratorStrengthPreference) findPreference(KEY_VIBSTRENGTH);
         mVibratorStrength.setEnabled(VibratorStrengthPreference.isSupported());
+
+        mSuspendFreqCap = (SuspendFreqCap) findPreference(KEY_SUSPEND_CAP_FREQ);
+        mSuspendFreqCap.setEnabled(SuspendFreqCap.isSupported());
+        mSuspendFreqCap.setValue(SuspendFreqCap.getValue(this));
+        mSuspendFreqCap.setOnPreferenceChangeListener(mSuspendFreqCap);
+
+        mSuspendCoreCap = (SuspendCoreCap) findPreference(KEY_SUSPEND_CAP_CORE);
+        mSuspendCoreCap.setEnabled(SuspendCoreCap.isSupported());
+        mSuspendCoreCap.setValue(SuspendCoreCap.getValue(this));
+        mSuspendCoreCap.setOnPreferenceChangeListener(mSuspendCoreCap);
     }
 
     @Override
@@ -84,7 +115,7 @@ public class DeviceSettings extends PreferenceActivity  {
     protected void onDestroy() {
         super.onDestroy();
     }
-    
+
     private String squashLengthValue(String value) {
         // map it to 325, 500, 850 if not exact value
         int intValue=new Integer(value).intValue();
@@ -108,7 +139,8 @@ public class DeviceSettings extends PreferenceActivity  {
             return (diff1<diff2)?"500":"850";
         }
         return value;
-    } 
+    }
+
     private String squashDurationValue(String value) {
         // map it to 150, 200, 250, 300, 350 if not exact value
         int intValue=new Integer(value).intValue();
@@ -142,5 +174,5 @@ public class DeviceSettings extends PreferenceActivity  {
             return (diff1<diff2)?"150":"200";
         }
         return value;
-    } 
+    }
 }
