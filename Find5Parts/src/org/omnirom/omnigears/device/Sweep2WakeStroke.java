@@ -1,4 +1,21 @@
-package com.cyanogenmod.settings.device;
+/*
+* Copyright (C) 2013 The OmniROM Project
+*
+* This program is free software: you can redistribute it and/or modify
+* it under the terms of the GNU General Public License as published by
+* the Free Software Foundation, either version 2 of the License, or
+* (at your option) any later version.
+*
+* This program is distributed in the hope that it will be useful,
+* but WITHOUT ANY WARRANTY; without even the implied warranty of
+* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+* GNU General Public License for more details.
+*
+* You should have received a copy of the GNU General Public License
+* along with this program. If not, see <http://www.gnu.org/licenses/>.
+*
+*/
+package org.omnirom.omnigears.device;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -6,18 +23,18 @@ import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceManager;
 
-public class DoubleTap2WakeDuration implements OnPreferenceChangeListener {
+public class Sweep2WakeStroke implements OnPreferenceChangeListener {
 
-    private static final String FILE = "/sys/android_touch/dt2w_duration";
+    private static final String FILE = "/sys/android_touch/s2w_allow_stroke";
 
     public static boolean isSupported() {
         return Utils.fileWritable(FILE);
     }
 
 	public static String getValue(Context context) {
-		String value = Utils.getFileValue(FILE, "150");
+		String value = Utils.getFileValue(FILE, "1");
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
-        return sharedPrefs.getString(DeviceSettings.KEY_DOUBLETAP2WAKE_DURATION, value);
+        return sharedPrefs.getString(DeviceSettings.KEY_S2WSTROKE, value);
 	}
 	
     /**
