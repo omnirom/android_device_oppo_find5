@@ -263,6 +263,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.extension_library=/system/lib/libqc-opt.so
 
+# other apps
+PRODUCT_PACKAGES += \
+	OmniTorch
+
 # selinux - maxwen: disabled for now
 #PRODUCT_PROPERTY_OVERRIDES += \
 #    ro.build.selinux=1 \
