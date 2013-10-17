@@ -16,4 +16,4 @@
 
 PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/aosp_find5.mk \
-    $(LOCAL_DIR)/custom_find5.mk
+    $(LOCAL_DIR)/omni_find5.mk

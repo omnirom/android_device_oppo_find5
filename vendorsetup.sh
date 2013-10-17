@@ -15,4 +15,4 @@
 #
 
 add_lunch_combo full_find5-userdebug
-add_lunch_combo custom_find5-userdebug
+add_lunch_combo omni_find5-userdebug

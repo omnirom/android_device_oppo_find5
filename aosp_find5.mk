@@ -13,6 +13,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-$(call inherit-product, device/oppo/find5/custom_find5.mk)
+$(call inherit-product, device/oppo/find5/full_find5.mk)
 
 PRODUCT_NAME := aosp_find5
