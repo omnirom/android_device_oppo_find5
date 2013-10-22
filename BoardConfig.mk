@@ -155,3 +155,16 @@ BOARD_USES_SEPERATED_VOICE_SPEAKER := true
 #       ueventd.te \
 #       wpa.te
 
+#TWRP flags
+DEVICE_RESOLUTION := 1080x1920
+RECOVERY_GRAPHICS_USE_LINELENGTH := true
+TW_NO_USB_STORAGE := true
+TW_INCLUDE_CRYPTO := true
+TW_CRYPTO_FS_TYPE := "ext4"
+TW_CRYPTO_REAL_BLKDEV := "/dev/block/platform/msm_sdcc.1/by-name/userdata"
+TW_CRYPTO_MNT_POINT := "/data"
+TW_CRYPTO_FS_OPTIONS := "barrier=1,noauto_da_alloc"
+TW_CRYPTO_FS_FLAGS := "0x00000406"
+TW_CRYPTO_KEY_LOC := "footer"
+TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
+TW_MAX_BRIGHTNESS := 255
