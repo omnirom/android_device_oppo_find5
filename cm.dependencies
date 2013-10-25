@@ -1,7 +1,0 @@
-[
- {
-   "repository": "android_kernel_oppo_find5",
-   "target_path": "kernel/oppo/find5",
-   "branch": "cm-10.1"
- }
-]
