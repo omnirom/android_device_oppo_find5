@@ -5,10 +5,4 @@
     "target_path": "kernel/oppo/find5",
     "revision": "android-4.3"
   },
-  {
-    "remote": "github",
-    "repository": "DonkeyCoyote/proprietary_vendor_oppo",
-    "target_path": "vendor/oppo",
-    "revision": "android-4.3"
-  }
 ]
