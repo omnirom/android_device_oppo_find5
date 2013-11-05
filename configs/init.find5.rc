@@ -28,8 +28,8 @@ on early-init
 on init
     export EXTERNAL_STORAGE /storage/sdcard0
 
-    mkdir /storage 0775 system system
-    mkdir /storage/sdcard0 0775 system system
+	mkdir /mnt/media_rw/sdcard0 0700 media_rw media_rw
+    mkdir /storage/sdcard0 0700 root root
 
     # for backwards compatibility
     symlink /storage/sdcard0 /sdcard
@@ -42,7 +42,7 @@ on init
     mkdir /firmware 0771 system system
     mount vfat /dev/block/platform/msm_sdcc.1/by-name/modem /firmware ro noatime noauto_da_alloc shortname=lower,uid=1000,gid=1000,dmask=227,fmask=337
 
-on fs
+# on fs
 #    mount_all ./fstab.find5
 #    setprop ro.crypto.fuse_sdcard true
 
@@ -441,3 +441,8 @@ service diag_mdlog /system/bin/logwrapper /system/bin/diag_mdlog -s 100
 
 # on property:gsm.sim.state=READY
 #    start diag_mdlog
+
+service fuse_sdcard0 /system/bin/sdcard -u 1023 -g 1023 /mnt/media_rw/sdcard0 /storage/sdcard0
+    class late_start
+    disabled
+
