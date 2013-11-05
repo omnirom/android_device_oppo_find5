@@ -32,10 +32,6 @@ PRODUCT_PACKAGES += \
     charger_res_images \
     charger
 
-# Vold and Storage
-PRODUCT_COPY_FILES += \
-        device/oppo/find5/configs/vold.fstab:system/etc/vold.fstab
-
 # Live Wallpapers
 PRODUCT_PACKAGES += \
         LiveWallpapers \
@@ -221,8 +217,7 @@ PRODUCT_PACKAGES += \
     libOmxEvrcEnc \
     libOmxQcelp13Enc \
 	libstagefrighthw \
-	libc2dcolorconvert \
-	libdashplayer
+	libc2dcolorconvert
 
 PRODUCT_PACKAGES += \
 	bdAddrLoader \

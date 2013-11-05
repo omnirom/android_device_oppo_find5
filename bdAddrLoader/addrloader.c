@@ -29,8 +29,8 @@
 #include <cutils/properties.h>
 
 #define FILE_PATH_MAX   100
-#define BD_ADDR_LEN  6
-#define BD_ADDR_STR_LEN 18
+#define BD_ADDR_LEN  PROPERTY_VALUE_MAX
+#define BD_ADDR_STR_LEN PROPERTY_VALUE_MAX
 
 
 #define ARG_TYPE_PATH_FILE  0x11
