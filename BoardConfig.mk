@@ -80,6 +80,9 @@ USE_OPENGL_RENDERER := true
 TARGET_USES_ION := true
 TARGET_USES_C2D_COMPOSITION := true
 
+# sensors
+BOARD_IGNORE_DERIVED_HAL_SENSORS := true
+
 # Recovery
 TARGET_RECOVERY_FSTAB := device/oppo/find5/configs/fstab.find5
 RECOVERY_FSTAB_VERSION := 2
