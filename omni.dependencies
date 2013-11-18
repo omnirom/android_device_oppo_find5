@@ -3,6 +3,6 @@
     "remote": "omnirom",
     "repository": "android_kernel_oppo_find5",
     "target_path": "kernel/oppo/find5",
-    "revision": "android-4.3"
+    "revision": "android-4.4"
   }
 ]
