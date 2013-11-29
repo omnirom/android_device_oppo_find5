@@ -32,7 +32,7 @@ public class Sweep2WakeSwitch implements OnPreferenceChangeListener {
     }
 
     public static boolean isEnabled(Context context) {
-        boolean enabled = Utils.getFileValueAsBoolean(FILE, true);
+        boolean enabled = Utils.getFileValueAsBoolean(FILE, false);
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
         return sharedPrefs.getBoolean(DeviceSettings.KEY_S2WSWITCH, enabled);
     }
