@@ -120,7 +120,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	ro.opengles.version=131072
 
 PRODUCT_PROPERTY_OVERRIDES += \
-	ro.sf.lcd_density=480
+	ro.sf.lcd_density=480 \
+    persist.hwc.mdpcomp.enable=true
 
 # qcom
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -153,9 +154,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Ril sends only one RIL_UNSOL_CALL_RING, so set call_ring.multiple to false
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.telephony.call_ring.multiple=0
-
-#Upto 3 layers can go through overlays
-PRODUCT_PROPERTY_OVERRIDES += persist.hwc.mdpcomp.enable=true
 
 # Cell Broadcasts
 PRODUCT_PROPERTY_OVERRIDES += \
