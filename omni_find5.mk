@@ -36,8 +36,7 @@ PRODUCT_MODEL := Find 5
 PRODUCT_MANUFACTURER := Oppo
 
 # Kernel inline build
+TARGET_KERNEL_SOURCE := kernel/oppo/apq8064
 TARGET_KERNEL_CONFIG := find5_defconfig
-TARGET_VARIANT_CONFIG := find5_defconfig
-TARGET_SELINUX_CONFIG := find5_defconfig
 
 $(call inherit-product-if-exists, vendor/oppo/find5/find5-vendor.mk)
