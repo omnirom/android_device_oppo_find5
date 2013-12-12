@@ -14,7 +14,7 @@
     <string name="s2w_double_tap_duration_title_head">Durata doppio tocco</string>
     <string name="s2w_double_tap_duration_summary_head">Durata minima doppio tocco</string>
     <string name="s2w_double_tap_barrier_title_head">Area doppio tocco</string>
-    <string name="s2w_double_tap_barrier_summary_head">Definisci l\'area attiva dello schermo dove per effettuare il doppio tocco</string>
+    <string name="s2w_double_tap_barrier_summary_head">Definisci l\'area attiva dello schermo dove poter effettuare il doppio tocco</string>
     <string name="category_vibrator">Vibrazione</string>
     <string name="vib_strength_title_head">Lunghezza</string>
     <string name="vib_strength_summary_head">Definisci la lunghezza della vibrazione</string>
