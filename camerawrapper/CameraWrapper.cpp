@@ -145,11 +145,6 @@ char * camera_fixup_setparams(int id, const char * settings)
             ALOGD("Fixup: Hdr disabled");
         }
     }
-
-    // some values take from stock rom
-    params.set("antibanding", "auto");
-    params.set("auto-exposure", "center-weighted");
-    params.set("denoise", "denoise-on");
     
     // allowing setting this to true will create the issue
     // with continious auto focus and flash
@@ -167,8 +162,6 @@ char * camera_fixup_setparams(int id, const char * settings)
         if (strcmp(isRecording, "true") == 0){
             // ZSL mode MUST be disabled in video mode - breaks HDR video else
             params.set("camera-mode", "0");
-            // stock does it too
-            params.set("power-mode", "Low_Power");
             params.set("picture-size", videoSize);
         }
     }
