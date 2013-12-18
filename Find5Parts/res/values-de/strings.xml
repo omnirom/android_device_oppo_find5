@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Find5</string>
+
+    <string name="category_s2w_title">Überstreichen zum (De-)Aktivieren</string>
+    <string name="s2w_switch_title_head">Überstreichen zum (De-)Aktivieren nutzen</string>
+    <string name="s2w_switch_summary_head">Den Bildschirm durch Überstreichen über die feste Knopfleiste an-/ausschalten.</string>
+    <string name="s2w_stroke_title_head">Richtung</string>
+    <string name="s2w_stroke_summary_head">Durch das Setzen von "richtungsabhängig" erfolgt das Einschalten nur durch Überstreichen von links nach rechts bzw. das Ausschalten von rechts nach links.</string>
+    <string name="s2w_length_title_head">Mindestlänge</string>
+    <string name="s2w_length_summary_head">Die Anzahl der zu überstreichenden Knöpfe zum Ein-/Ausschalten des Bildschirms.</string>
+    <string name="category_s2w_double_tap_title">Doppelantippen zum (De-)Aktivieren</string>
+    <string name="s2w_double_tap_wake_title_head">Doppeltes Antippen zum (De-)Aktivieren nutzen</string>
+    <string name="s2w_double_tap_wake_summary_head">Den Bildschirm durch doppeltes Antippen im unteren Bereich an-/ausschalten.</string>
+    <string name="s2w_double_tap_duration_title_head">Doppelantippdauer</string>
+    <string name="s2w_double_tap_duration_summary_head">Die erforderliche Zeit in Millisekunden zwischen den beiden Antippen zum (De-)Aktivieren des Bildschirms.</string>
+    <string name="s2w_double_tap_barrier_title_head">Doppelantippbereich</string>
+    <string name="s2w_double_tap_barrier_summary_head">Den möglichen Bildschirmbereich für das (De-)Aktivieren mittels doppeltem Antippen festlegen.</string>
+
+    <string name="category_vibrator">Vibration</string>
+    <string name="vib_strength_title_head">Stärke</string>
+    <string name="vib_strength_summary_head">Die Stärke der Vibration festlegen.</string>
+    <string name="vib_test">Testen</string>
+    <string name="category_suspend_cap">Ruhemodus</string>
+    <string name="suspend_cap_freq">Maximale Kern-Frequenz</string>
+    <string name="suspend_cap_core">Anzahl der Kerne</string>
+</resources>
