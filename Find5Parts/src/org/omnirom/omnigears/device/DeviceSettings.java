@@ -34,9 +34,10 @@ public class DeviceSettings extends PreferenceActivity  {
     public static final String KEY_S2WSWITCH = "s2w_switch";
     public static final String KEY_S2WSTROKE = "s2w_stroke";
     public static final String KEY_S2WLENGTH = "s2w_length";
-    public static final String KEY_DOUBLETAB2WAKE_SWITCH = "s2w_double_tap_wake";
-    public static final String KEY_DOUBLETAP2WAKE_DURATION = "s2w_double_tap_duration";
-    public static final String KEY_DOUBLETAP2WAKE_BARRIER = "s2w_double_tap_barrier";
+    public static final String KEY_DOUBLETAB_SWITCH = "double_tap";
+    public static final String KEY_CAMERA_SWITCH = "camera";
+    public static final String KEY_MUSIC_SWITCH = "music";
+    public static final String KEY_TORCH_SWITCH = "torch";
     public static final String KEY_VIBSTRENGTH = "vib_strength";
     public static final String KEY_SUSPEND_CAP_FREQ = "suspend_cap_freq";
     public static final String KEY_SUSPEND_CAP_CORE = "suspend_cap_core";
@@ -44,9 +45,10 @@ public class DeviceSettings extends PreferenceActivity  {
     private TwoStatePreference mS2WSwitch;
     private ListPreference mS2WStroke;
     private ListPreference mS2WLength;
-    private TwoStatePreference mDoubleTap2WakeSwitch;
-    private ListPreference mDoubleTap2WakeDuration;
-    private ListPreference mDoubleTap2WakeBarrier;
+    private TwoStatePreference mDoubleTapSwitch;
+    private TwoStatePreference mCameraSwitch;
+    private TwoStatePreference mMusicSwitch;
+    private TwoStatePreference mTorchSwitch;
     private VibratorStrengthPreference mVibratorStrength;
     private SuspendFreqCap mSuspendFreqCap;
     private SuspendCoreCap mSuspendCoreCap;
@@ -71,20 +73,25 @@ public class DeviceSettings extends PreferenceActivity  {
         mS2WLength.setValue(squashLengthValue(Sweep2WakeMinLength.getValue(this)));
         mS2WLength.setOnPreferenceChangeListener(new Sweep2WakeMinLength());
 
-        mDoubleTap2WakeSwitch = (TwoStatePreference) findPreference(KEY_DOUBLETAB2WAKE_SWITCH);
-        mDoubleTap2WakeSwitch.setEnabled(DoubleTap2WakeSwitch.isSupported());
-        mDoubleTap2WakeSwitch.setChecked(DoubleTap2WakeSwitch.isEnabled(this));
-        mDoubleTap2WakeSwitch.setOnPreferenceChangeListener(new DoubleTap2WakeSwitch());
+        mDoubleTapSwitch = (TwoStatePreference) findPreference(KEY_DOUBLETAB_SWITCH);
+        mDoubleTapSwitch.setEnabled(DoubleTapSwitch.isSupported());
+        mDoubleTapSwitch.setChecked(DoubleTapSwitch.isEnabled(this));
+        mDoubleTapSwitch.setOnPreferenceChangeListener(new DoubleTapSwitch());
 
-        mDoubleTap2WakeDuration = (ListPreference) findPreference(KEY_DOUBLETAP2WAKE_DURATION);
-        mDoubleTap2WakeDuration.setEnabled(DoubleTap2WakeDuration.isSupported());
-        mDoubleTap2WakeDuration.setValue(squashDurationValue(DoubleTap2WakeDuration.getValue(this)));
-        mDoubleTap2WakeDuration.setOnPreferenceChangeListener(new DoubleTap2WakeDuration());
+        mCameraSwitch = (TwoStatePreference) findPreference(KEY_CAMERA_SWITCH);
+        mCameraSwitch.setEnabled(CameraGestureSwitch.isSupported());
+        mCameraSwitch.setChecked(CameraGestureSwitch.isEnabled(this));
+        mCameraSwitch.setOnPreferenceChangeListener(new CameraGestureSwitch());
 
-        mDoubleTap2WakeBarrier = (ListPreference) findPreference(KEY_DOUBLETAP2WAKE_BARRIER);
-        mDoubleTap2WakeBarrier.setEnabled(DoubleTap2WakeBarrier.isSupported());
-        mDoubleTap2WakeBarrier.setValue(DoubleTap2WakeBarrier.getValue(this));
-        mDoubleTap2WakeBarrier.setOnPreferenceChangeListener(new DoubleTap2WakeBarrier());
+        mMusicSwitch = (TwoStatePreference) findPreference(KEY_MUSIC_SWITCH);
+        mMusicSwitch.setEnabled(MusicGestureSwitch.isSupported());
+        mMusicSwitch.setChecked(MusicGestureSwitch.isEnabled(this));
+        mMusicSwitch.setOnPreferenceChangeListener(new MusicGestureSwitch());
+
+        mTorchSwitch = (TwoStatePreference) findPreference(KEY_TORCH_SWITCH);
+        mTorchSwitch.setEnabled(TorchGestureSwitch.isSupported());
+        mTorchSwitch.setChecked(TorchGestureSwitch.isEnabled(this));
+        mTorchSwitch.setOnPreferenceChangeListener(new TorchGestureSwitch());
 
         mVibratorStrength = (VibratorStrengthPreference) findPreference(KEY_VIBSTRENGTH);
         mVibratorStrength.setEnabled(VibratorStrengthPreference.isSupported());
@@ -137,41 +144,6 @@ public class DeviceSettings extends PreferenceActivity  {
             int diff1=intValue-500;
             int diff2=850-intValue;
             return (diff1<diff2)?"500":"850";
-        }
-        return value;
-    }
-
-    private String squashDurationValue(String value) {
-        // map it to 150, 200, 250, 300, 350 if not exact value
-        int intValue=new Integer(value).intValue();
-        if(intValue==150 || intValue==200 || intValue==250 || intValue==300 || intValue==350){
-            return value;
-        }
-        // we found a different value in sysfs
-        // map it to our 5 possible durations
-        if(intValue<150)
-            return "150";
-        if(intValue>350)
-            return "350";
-        if(intValue>300 && intValue <350){
-            int diff1=intValue-300;
-            int diff2=350-intValue;
-            return (diff1<diff2)?"300":"350";
-        }
-        if(intValue>250 && intValue <300){
-            int diff1=intValue-250;
-            int diff2=300-intValue;
-            return (diff1<diff2)?"250":"300";
-        }
-        if(intValue>200 && intValue <250){
-            int diff1=intValue-200;
-            int diff2=250-intValue;
-            return (diff1<diff2)?"200":"250";
-        }
-        if(intValue>150 && intValue <200){
-            int diff1=intValue-150;
-            int diff2=200-intValue;
-            return (diff1<diff2)?"150":"200";
         }
         return value;
     }
