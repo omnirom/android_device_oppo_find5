@@ -47,9 +47,10 @@
         <item>400</item>
         <item>500</item>
         <item>800</item>
-        <item>1000</item>
-        <item>1600</item>
+        <item>1500</item>
         <item>3000</item>
+        <item>5000</item>
+        <item>10000</item>
     </integer-array>
 
     <!-- Array of output values for LCD backlight corresponding to the LUX values
@@ -64,10 +65,11 @@
         <item>71</item>   <!-- 200-400 -->
         <item>80</item>   <!-- 400-500 -->
         <item>96</item>   <!-- 500-800 -->
-        <item>108</item>  <!-- 800-1000 -->
-        <item>144</item>  <!-- 1000-1600 -->
-        <item>181</item>  <!-- 1600-3000 -->
-        <item>255</item>  <!-- 3000+ -->
+        <item>108</item>  <!-- 800-1500 -->
+        <item>144</item>  <!-- 1500-3000 -->
+        <item>181</item>  <!-- 3000-5000 -->
+        <item>220</item>  <!-- 5000-10000 -->
+        <item>255</item>  <!-- 10000+ -->
     </integer-array>
 
     <!-- Array of output values for button backlight corresponding to the LUX values
@@ -82,10 +84,11 @@
         <item>71</item>   <!-- 200-400 -->
         <item>80</item>   <!-- 400-500 -->
         <item>96</item>   <!-- 500-800 -->
-        <item>108</item>  <!-- 800-1000 -->
-        <item>144</item>  <!-- 1000-1600 -->
-        <item>181</item>  <!-- 1600-3000 -->
-        <item>255</item>  <!-- 3000+ -->
+        <item>108</item>  <!-- 800-1500 -->
+        <item>144</item>  <!-- 1500-3000 -->
+        <item>181</item>  <!-- 3000-5000 -->
+        <item>220</item>  <!-- 5000-10000 -->
+        <item>255</item>  <!-- 10000+ -->
     </integer-array>
 
     <!-- Boolean indicating whether we want button brightness support -->
