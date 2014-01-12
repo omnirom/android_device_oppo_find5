@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="s2w_stroke_entries">
+        <item>Qualsiasi direzione</item>
+        <item>Direzione fissa</item>
+    </string-array>
+    <string-array name="s2w_length_entries">
+        <item>1 pulsante</item>
+        <item>2 pulsanti</item>
+        <item>3 pulsanti</item>
+    </string-array>
+</resources>
