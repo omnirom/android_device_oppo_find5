@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cb5d2d02_a2fbbfb8",
+        "filename": "Find5Parts/res/values-it/arrays.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1000026
+      },
+      "writtenOn": "2014-01-16T13:52:01Z",
+      "side": 1,
+      "message": "s2w is no longer supported. so we don tneed this file",
+      "revId": "0ce48ecdd1e4cbda9de24080989aafb213667897",
+      "serverId": "56841c99-7c94-43d4-bf0b-cb4707e66d55",
+      "unresolved": false
+    }
+  ]
+}
