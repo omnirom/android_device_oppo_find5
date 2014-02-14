@@ -179,6 +179,7 @@ PRODUCT_PACKAGES += \
 	hwcomposer.msm8960 \
 	gralloc.msm8960 \
 	copybit.msm8960 \
+	memtrack.msm8960 \
 	lights.find5 \
 	camera-wrapper.msm8960 \
 	power.find5
