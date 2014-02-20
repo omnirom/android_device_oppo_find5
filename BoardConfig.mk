@@ -104,7 +104,6 @@ BOARD_USES_SECURE_SERVICES := true
 BOARD_LIB_DUMPSTATE := libdumpstate.find5
 
 # GPS
-BOARD_HAVE_NEW_QC_GPS := true
 #The below will be needed if we ever want to build GPS HAL from source
 #TARGET_PROVIDES_GPS_LOC_API := true
 #BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := $(TARGET_BOARD_PLATFORM)
