@@ -26,24 +26,40 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
+LOG_TAG="qcom-post_fs"
+LOG_NAME="${0}:"
+
+loge ()
+{
+  /system/bin/log -t $LOG_TAG -p e "$LOG_NAME $@"
+}
+
+logi ()
+{
+  /system/bin/log -t $LOG_TAG -p i "$LOG_NAME $@"
+}
+
 # This should be the first command
 # remount system as read-write.
 mount -o rw,remount,barrier=1 /system
 
 # Run modem link script
+logi "init.qcom.modem_links.sh"
 /system/bin/sh /system/etc/init.qcom.modem_links.sh
 
 # Run mdm link script
+logi "init.qcom.mdm_links.sh"
 /system/bin/sh /system/etc/init.qcom.mdm_links.sh
 
 # Run thermal script
+logi "init.qcom.thermald_conf.sh"
 /system/bin/sh /system/etc/init.qcom.thermald_conf.sh
+
+# wifi setup
+logi "init.qcom.wifi.sh"
+/system/bin/sh /system/etc/init.qcom.wifi.sh
 
 # This should be the last command
 # remount system as read-only.
 mount -o ro,remount,noatime,noauto_da_alloc /system
-
-# Copy Wi-Fi firmware to /data
-mkdir -p /data/misc/wifi/prima
-cp /persist/WCNSS_* /data/misc/wifi/prima
 
