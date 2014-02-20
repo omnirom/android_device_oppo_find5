@@ -40,9 +40,6 @@ PRODUCT_PACKAGES += \
         librs_jni
 
 PRODUCT_COPY_FILES += \
-	device/oppo/find5/WCNSS_cfg.dat:system/etc/firmware/wlan/prima/WCNSS_cfg.dat
-
-PRODUCT_COPY_FILES += \
 	device/oppo/find5/configs/snd_soc_msm_2x_Fusion3:system/etc/snd_soc_msm/snd_soc_msm_2x_Fusion3 \
 	device/oppo/find5/configs/audio_policy.conf:system/etc/audio_policy.conf
 
@@ -105,6 +102,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
 	device/oppo/find5/configs/gps.conf:system/etc/gps.conf
 
+# wifi
+PRODUCT_PACKAGES += \
+    mac-update
+
 # NFC packages
 PRODUCT_PACKAGES += \
     libnfc \
@@ -148,11 +149,17 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Do not power down SIM card when modem is sent to Low Power Mode.
 PRODUCT_PROPERTY_OVERRIDES += \
-	persist.radio.apm_sim_not_pwdn=1
+	persist.radio.apm_sim_not_pwdn=1 \
+	persist.radio.eons.enabled=false
 
 # Ril sends only one RIL_UNSOL_CALL_RING, so set call_ring.multiple to false
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.telephony.call_ring.multiple=0
+
+# Ril
+PRODUCT_PROPERTY_OVERRIDES += \
+	rild.libpath=/system/lib/libril-qc-qmi-1.so \
+	ril.subscription.types=NV,RUIM
 
 #Upto 3 layers can go through overlays
 PRODUCT_PROPERTY_OVERRIDES += persist.hwc.mdpcomp.enable=true
@@ -219,9 +226,6 @@ PRODUCT_PACKAGES += \
 	bdAddrLoader \
 	libwfcu \
 	conn_init
-
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-	rild.libpath=/system/lib/libril-qc-qmi-1.so
 
 PRODUCT_PROPERTY_OVERRIDES += \
 	telephony.lteOnCdmaDevice=0
