@@ -131,6 +131,7 @@ BOARD_USES_FLUENCE_INCALL := true
 # to enter the default else path
 BOARD_USES_SEPERATED_AUDIO_INPUT := true
 BOARD_USES_SEPERATED_VOICE_SPEAKER := true
+BOARD_HAVE_NEW_QCOM_CSDCLIENT := true
 
 -include vendor/oppo/find5/BoardConfigVendor.mk
 
