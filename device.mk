@@ -165,8 +165,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Ril
 PRODUCT_PROPERTY_OVERRIDES += \
-	rild.libpath=/system/lib/libril-qc-qmi-1.so \
-	ril.subscription.types=NV,RUIM
+    rild.libpath=/system/lib/libril-qc-qmi-1.so \
+    ril.subscription.types=NV,RUIM \
+    ro.telephony.ril_class=OppoRIL
 
 #Upto 3 layers can go through overlays
 PRODUCT_PROPERTY_OVERRIDES += persist.hwc.mdpcomp.enable=true
