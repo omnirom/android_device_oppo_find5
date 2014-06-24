@@ -262,6 +262,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.extension_library=/system/lib/libqc-opt.so
 
+# gps
+#system prop for switching gps driver to qmi
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.gps.qmienabled=true
+
 # other apps
 PRODUCT_PACKAGES += \
 	OmniTorch
