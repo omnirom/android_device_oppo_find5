@@ -29,7 +29,7 @@
     <string name="vib_strength_summary_head">Define the strength of the vibrator</string>
     <string name="vib_test">Test</string>
     <string name="category_suspend_cap">Suspend Limits</string>
-    <string name="suspend_cap_freq">Core frequeny limit</string>
+    <string name="suspend_cap_freq">Core frequency limit</string>
     <string name="suspend_cap_core">Core number limit</string>
     <string name="disabled">Disabled</string>
     <string name="core">core</string>
