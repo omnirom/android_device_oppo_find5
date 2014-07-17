@@ -38,7 +38,7 @@ TARGET_NO_BOOTLOADER := true
 
 BOARD_KERNEL_BASE := 0x80200000
 BOARD_KERNEL_PAGESIZE := 2048
-BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.hardware=find5 lpj=67677 user_debug=31 msm_rtb.filter=0x3F ehci-hcd.park=3
+BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.hardware=find5 androidboot.selinux=enforcing lpj=67677 user_debug=31 msm_rtb.filter=0x3F ehci-hcd.park=3
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x02000000
 
 # Bluetooth
@@ -140,29 +140,29 @@ BOARD_HAVE_OPPO_CSDCLIENT := true
 -include vendor/oppo/find5/BoardConfigVendor.mk
 
 # selinux - maxwen: disabled for now
-#BOARD_SEPOLICY_DIRS := \
-#       device/oppo/find5/sepolicy
+BOARD_SEPOLICY_DIRS := \
+       device/oppo/find5/sepolicy
 
-#BOARD_SEPOLICY_UNION := \
-#       app.te \
-#      bluetooth.te \
-#       compatibility.te \
-#       device.te \
-#       domain.te \
-#       drmserver.te \
-#       file.te \
-#       file_contexts \
-#       hci_init.te \
-#       init_shell.te \
-#       keystore.te \
-#       mediaserver.te \
-#       kickstart.te \
-#       nfc.te \
-#       rild.te \
-#       surfaceflinger.te \
-#       system.te \
-#       ueventd.te \
-#       wpa.te
+BOARD_SEPOLICY_UNION := \
+       app.te \
+      bluetooth.te \
+       compatibility.te \
+       device.te \
+       domain.te \
+       drmserver.te \
+       file.te \
+       file_contexts \
+       hci_init.te \
+       init_shell.te \
+       keystore.te \
+       mediaserver.te \
+       kickstart.te \
+       nfc.te \
+       rild.te \
+       surfaceflinger.te \
+       system.te \
+       ueventd.te \
+       wpa.te
 
 #TWRP flags
 DEVICE_RESOLUTION := 1080x1920
