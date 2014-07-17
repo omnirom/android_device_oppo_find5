@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4b713d8b_cef0e7fe",
+        "filename": "BoardConfig.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1000026
+      },
+      "writtenOn": "2014-07-17T15:08:20Z",
+      "side": 1,
+      "message": "You can then remove this comment :)",
+      "revId": "9f4f139a160b0eb773e41e24797feb83a65d5ec0",
+      "serverId": "56841c99-7c94-43d4-bf0b-cb4707e66d55",
+      "unresolved": false
+    }
+  ]
+}
