@@ -39,4 +39,6 @@ PRODUCT_MANUFACTURER := Oppo
 TARGET_KERNEL_SOURCE := kernel/oppo/apq8064
 TARGET_KERNEL_CONFIG := find5_defconfig
 
-$(call inherit-product-if-exists, vendor/oppo/find5/find5-vendor.mk)
+$(call inherit-product, vendor/oppo/find5/find5-vendor.mk)
+$(call inherit-product, device/oppo/find5/device.mk)
+$(call inherit-product, vendor/oppo/find5/find5-vendor.mk)
