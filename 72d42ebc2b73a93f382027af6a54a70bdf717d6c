@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4b713d8b_fb1c806b",
+        "filename": "configs/gps.conf",
+        "patchSetId": 5
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000026
+      },
+      "writtenOn": "2014-07-24T19:07:23Z",
+      "side": 1,
+      "message": "Isnt that the same line as above?",
+      "revId": "72d42ebc2b73a93f382027af6a54a70bdf717d6c",
+      "serverId": "56841c99-7c94-43d4-bf0b-cb4707e66d55",
+      "unresolved": false
+    }
+  ]
+}
