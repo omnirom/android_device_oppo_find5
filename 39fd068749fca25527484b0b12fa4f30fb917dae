@@ -16,6 +16,23 @@
       "revId": "39fd068749fca25527484b0b12fa4f30fb917dae",
       "serverId": "56841c99-7c94-43d4-bf0b-cb4707e66d55",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "4b713d8b_69a7cd4d",
+        "filename": "configs/media_profiles.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1000026
+      },
+      "writtenOn": "2014-07-24T12:18:48Z",
+      "side": 1,
+      "message": "as long as we dont support HFR this is not of much use",
+      "revId": "39fd068749fca25527484b0b12fa4f30fb917dae",
+      "serverId": "56841c99-7c94-43d4-bf0b-cb4707e66d55",
+      "unresolved": false
     }
   ]
 }
