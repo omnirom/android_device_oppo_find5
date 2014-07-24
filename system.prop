@@ -27,15 +27,6 @@ debug.nfc.fw_boot_download=false
 debug.nfc.se=true
 ro.nfc.port=I2C
 
-# Audio (FIXME)
-lpa.decode=false
-tunnel.audiovideo.decode=true
-tunnel.decode=false
-persist.audio.fluence.mode=endfire
-persist.audio.vr.enable=false
-persist.audio.handset.mic=digital
-af.resampler.quality=255
-
 # GPS
 ro.qc.sdk.izat.premium_enabled=0
 ro.qc.sdk.izat.service_mask=0x0
