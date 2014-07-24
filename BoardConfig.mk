@@ -82,7 +82,7 @@ TARGET_USES_C2D_COMPOSITION := true
 NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
 
 # Recovery
-TARGET_RECOVERY_FSTAB := device/oppo/find5/configs/fstab.find5
+TARGET_RECOVERY_FSTAB := device/oppo/find5/root/fstab.find5
 RECOVERY_FSTAB_VERSION := 2
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/oppo/find5/recovery/recovery_keys.c
