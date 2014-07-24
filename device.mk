@@ -28,6 +28,7 @@ DEVICE_PACKAGE_OVERLAYS := device/oppo/find5/overlay
 PRODUCT_AAPT_CONFIG := normal hdpi xhdpi xxhdpi
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 
+# Offmode charging
 PRODUCT_PACKAGES += \
     charger_res_images_find5 \
     charger_find5
@@ -39,30 +40,33 @@ PRODUCT_PACKAGES += \
         VisualizationWallpapers \
         librs_jni
 
+# Thermald
 PRODUCT_COPY_FILES += \
+	device/oppo/find5/configs/thermald-find5.conf:system/etc/thermald.conf
+
+#Ramdisk
+PRODUCT_COPY_FILES += \
+	device/oppo/find5/root/init.find5.rc:root/init.find5.rc \
+	device/oppo/find5/root/init.find5.usb.rc:root/init.find5.usb.rc \
+	device/oppo/find5/root/init.recovery.find5.rc:root/init.recovery.find5.rc \
+	device/oppo/find5/root/tpupdate.rle:root/tpupdate.rle \
+	device/oppo/find5/root/fstab.find5:root/fstab.find5 \
+	device/oppo/find5/root/twrp.fstab:recovery/root/etc/twrp.fstab \
+	device/oppo/find5/root/ueventd.find5.rc:root/ueventd.find5.rc
+
+#Audio files
+PRODUCT_COPY_FILES += \
+	device/oppo/find5/configs/media_profiles.xml:system/etc/media_profiles.xml \
+	device/oppo/find5/configs/media_codecs.xml:system/etc/media_codecs.xml \
 	device/oppo/find5/configs/snd_soc_msm_2x_Fusion3:system/etc/snd_soc_msm/snd_soc_msm_2x_Fusion3 \
 	device/oppo/find5/configs/audio_policy.conf:system/etc/audio_policy.conf
 
+# qcom init scripts
 PRODUCT_COPY_FILES += \
-	device/oppo/find5/thermald-find5.conf:system/etc/thermald.conf
-
-PRODUCT_COPY_FILES += \
-	device/oppo/find5/configs/init.find5.rc:root/init.find5.rc \
-	device/oppo/find5/configs/init.find5.usb.rc:root/init.find5.usb.rc \
-	device/oppo/find5/configs/init.recovery.find5.rc:root/init.recovery.find5.rc \
-	device/oppo/find5/configs/tpupdate.rle:root/tpupdate.rle \
-	device/oppo/find5/configs/fstab.find5:root/fstab.find5 \
-	device/oppo/find5/configs/twrp.fstab:recovery/root/etc/twrp.fstab \
-	device/oppo/find5/configs/ueventd.find5.rc:root/ueventd.find5.rc \
-	device/oppo/find5/configs/media_profiles.xml:system/etc/media_profiles.xml \
-	device/oppo/find5/configs/media_codecs.xml:system/etc/media_codecs.xml
-	
-# qcom init stuff
-PRODUCT_COPY_FILES += \
-	device/oppo/find5/init.qcom.post_fs.sh:system/etc/init.qcom.post_fs.sh \
-	device/oppo/find5/init.qcom.mdm_links.sh:system/etc/init.qcom.mdm_links.sh \
-	device/oppo/find5/init.qcom.modem_links.sh:system/etc/init.qcom.modem_links.sh \
-	device/oppo/find5/init.qcom.wifi.sh:system/etc/init.qcom.wifi.sh
+	device/oppo/find5/qcom-scripts/init.qcom.post_fs.sh:system/etc/init.qcom.post_fs.sh \
+	device/oppo/find5/qcom-scripts/init.qcom.mdm_links.sh:system/etc/init.qcom.mdm_links.sh \
+	device/oppo/find5/qcom-scripts/init.qcom.modem_links.sh:system/etc/init.qcom.modem_links.sh \
+	device/oppo/find5/qcom-scripts/init.qcom.wifi.sh:system/etc/init.qcom.wifi.sh
 
 # Wifi config
 PRODUCT_COPY_FILES += \
@@ -71,15 +75,15 @@ PRODUCT_COPY_FILES += \
 
 # Prebuilt kl and kcm keymaps
 PRODUCT_COPY_FILES += \
-	device/oppo/find5/apq8064-tabla-snd-card_Button_Jack.kl:system/usr/keylayout/apq8064-tabla-snd-card_Button_Jack.kl \
-	device/oppo/find5/hs_detect.kl:system/usr/keylayout/hs_detect.kl \
-	device/oppo/find5/pmic8xxx_pwrkey.kl:system/usr/keylayout/pmic8xxx_pwrkey.kl \
-	device/oppo/find5/keypad_8064.kl:system/usr/keylayout/keypad_8064.kl \
-	device/oppo/find5/synaptics-rmi-ts.kl:system/usr/keylayout/synaptics-rmi-ts.kl \
-	device/oppo/find5/apq8064-tabla-snd-card_Button_Jack.kcm:system/usr/keychars/apq8064-tabla-snd-card_Button_Jack.kcm \
-	device/oppo/find5/hs_detect.kcm:system/usr/keychars/hs_detect.kcm \
-	device/oppo/find5/keypad_8064.kcm:system/usr/keychars/keypad_8064.kcm \
-	device/oppo/find5/pmic8xxx_pwrkey.kcm:system/usr/keychars/pmic8xxx_pwrkey.kcm
+	device/oppo/find5/usr/keylayout/apq8064-tabla-snd-card_Button_Jack.kl:system/usr/keylayout/apq8064-tabla-snd-card_Button_Jack.kl \
+	device/oppo/find5/usr/keylayout/hs_detect.kl:system/usr/keylayout/hs_detect.kl \
+	device/oppo/find5/usr/keylayout/pmic8xxx_pwrkey.kl:system/usr/keylayout/pmic8xxx_pwrkey.kl \
+	device/oppo/find5/usr/keylayout/keypad_8064.kl:system/usr/keylayout/keypad_8064.kl \
+	device/oppo/find5/usr/keylayout/synaptics-rmi-ts.kl:system/usr/keylayout/synaptics-rmi-ts.kl \
+	device/oppo/find5/usr/keychars/apq8064-tabla-snd-card_Button_Jack.kcm:system/usr/keychars/apq8064-tabla-snd-card_Button_Jack.kcm \
+	device/oppo/find5/usr/keychars/hs_detect.kcm:system/usr/keychars/hs_detect.kcm \
+	device/oppo/find5/usr/keychars/keypad_8064.kcm:system/usr/keychars/keypad_8064.kcm \
+	device/oppo/find5/usr/keychars/pmic8xxx_pwrkey.kcm:system/usr/keychars/pmic8xxx_pwrkey.kcm
 
 # Prebuilt input device calibration files
 PRODUCT_COPY_FILES += \
@@ -124,18 +128,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.nfc.xml:system/etc/permissions/android.hardware.nfc.xml
 
-PRODUCT_PROPERTY_OVERRIDES += \
-	ro.opengles.version=131072
-
-PRODUCT_PROPERTY_OVERRIDES += \
-	ro.sf.lcd_density=480
-
-# qcom
-PRODUCT_PROPERTY_OVERRIDES += \
-	ro.qc.sdk.audio.ssr=false \
-	ro.qc.sdk.audio.fluencetype=fluence \
-	ro.qc.sdk.sensors.gestures=false
-
 # Audio Configuration
 PRODUCT_PROPERTY_OVERRIDES += \
 	persist.audio.handset.mic=dmic \
@@ -174,8 +166,8 @@ PRODUCT_PROPERTY_OVERRIDES += persist.hwc.mdpcomp.enable=true
 
 # Cell Broadcasts
 PRODUCT_PROPERTY_OVERRIDES += \
-	ro.cellbroadcast.emergencyids=0-65534 
-        
+	ro.cellbroadcast.emergencyids=0-65534
+
 PRODUCT_CHARACTERISTICS := nosdcard
 
 PRODUCT_TAGS += dalvik.gc.type-precise
@@ -212,13 +204,13 @@ PRODUCT_PACKAGES += \
 	hci_qcomm_init
 
 PRODUCT_COPY_FILES += \
-	device/oppo/find5/configs/init.find5.bt.sh:system/etc/init.find5.bt.sh
+	device/oppo/find5/qcom-scripts/init.find5.bt.sh:system/etc/init.find5.bt.sh
 
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.qualcomm.bt.hci_transport=smd
 
 PRODUCT_PACKAGES += \
-        libmm-omxcore \
+    libmm-omxcore \
 	libdivxdrmdecrypt \
 	libOmxVdec \
 	libOmxVenc \
@@ -262,28 +254,13 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.extension_library=/system/lib/libqc-opt.so
 
-# gps
-#system prop for switching gps driver to qmi
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.gps.qmienabled=true
-
 # other apps
 PRODUCT_PACKAGES += \
 	OmniTorch
 
-# selinux - maxwen: disabled for now
-#PRODUCT_PROPERTY_OVERRIDES += \
-#    ro.build.selinux=1 \
-#    persist.sys.root_access=1
-
-# SELinux filesystem labels
-#PRODUCT_COPY_FILES += \
-#    device/oppo/find5/configs/50selinuxrelabel:system/etc/init.d/50selinuxrelabel
-	
 # other apps
 PRODUCT_PACKAGES += \
 	Find5Parts
 
 $(call inherit-product, frameworks/native/build/phone-xxhdpi-2048-dalvik-heap.mk)
 $(call inherit-product, frameworks/native/build/phone-xxhdpi-2048-hwui-memory.mk)
-
