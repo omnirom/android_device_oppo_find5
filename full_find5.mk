@@ -33,4 +33,4 @@ PRODUCT_MANUFACTURER := Oppo
 
 # Inherit from mint device
 $(call inherit-product, device/oppo/find5/device.mk)
-$(call inherit-product-if-exists, vendor/oppo/find5/find5-vendor.mk)
+$(call inherit-product, vendor/oppo/find5/find5-vendor.mk)
