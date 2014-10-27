@@ -19,7 +19,7 @@
 #
 # Everything in this directory will become public
 
-DEVICE_PACKAGE_OVERLAYS := device/oppo/find5/overlay
+DEVICE_PACKAGE_OVERLAYS := $(LOCAL_PATH)/overlay
 
 # This device is xhdpi.  However the platform doesn't
 # currently contain all of the bitmaps at xhdpi density so
@@ -40,50 +40,64 @@ PRODUCT_PACKAGES += \
         librs_jni
 
 PRODUCT_COPY_FILES += \
-	device/oppo/find5/configs/snd_soc_msm_2x_Fusion3:system/etc/snd_soc_msm/snd_soc_msm_2x_Fusion3 \
-	device/oppo/find5/configs/audio_policy.conf:system/etc/audio_policy.conf
+	$(LOCAL_PATH)/configs/snd_soc_msm_2x_Fusion3:system/etc/snd_soc_msm/snd_soc_msm_2x_Fusion3 \
+	$(LOCAL_PATH)/configs/audio_policy.conf:system/etc/audio_policy.conf
 
 PRODUCT_COPY_FILES += \
-	device/oppo/find5/thermald-find5.conf:system/etc/thermald.conf
+	$(LOCAL_PATH)/thermald-find5.conf:system/etc/thermald.conf
 
+# Ramdisk
 PRODUCT_COPY_FILES += \
-	device/oppo/find5/configs/init.find5.rc:root/init.find5.rc \
-	device/oppo/find5/configs/init.find5.usb.rc:root/init.find5.usb.rc \
-	device/oppo/find5/configs/init.recovery.find5.rc:root/init.recovery.find5.rc \
-	device/oppo/find5/configs/tpupdate.rle:root/tpupdate.rle \
-	device/oppo/find5/configs/fstab.find5:root/fstab.find5 \
-	device/oppo/find5/configs/twrp.fstab:recovery/root/etc/twrp.fstab \
-	device/oppo/find5/configs/ueventd.find5.rc:root/ueventd.find5.rc \
-	device/oppo/find5/configs/media_profiles.xml:system/etc/media_profiles.xml \
-	device/oppo/find5/configs/media_codecs.xml:system/etc/media_codecs.xml
-	
+	$(LOCAL_PATH)/configs/init.find5.rc:root/init.find5.rc \
+	$(LOCAL_PATH)/configs/init.find5.usb.rc:root/init.find5.usb.rc \
+	$(LOCAL_PATH)/configs/init.recovery.find5.rc:root/init.recovery.find5.rc \
+	$(LOCAL_PATH)/configs/tpupdate.rle:root/tpupdate.rle \
+  $(LOCAL_PATH)/configs/fstab.find5.std:root/fstab.qcom.std \
+  $(LOCAL_PATH)/configs/fstab.find5.lvm:root/fstab.qcom.lvm \
+	$(LOCAL_PATH)/configs/twrp.fstab.lvm:recovery/root/etc/twrp.fstab.lvm \
+  $(LOCAL_PATH)/configs/twrp.fstab.std:recovery/root/etc/twrp.fstab.std
+
+# LVM
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/lvm/lvm_init.sh:root/lvm_init.sh \
+    $(LOCAL_PATH)/lvm/lvm_init_recovery.sh:recovery/root/sbin/lvm_init_recovery.sh \
+    $(LOCAL_PATH)/lvm/lvm_symlinks.sh:root/lvm_symlinks.sh \
+    $(LOCAL_PATH)/lvm/lvm_setprop.sh:root/lvm_setprop.sh \
+    $(LOCAL_PATH)/lvm/lvm:root/sbin/lvm \
+    $(LOCAL_PATH)/lvm/lvm.conf:root/lvm/etc/lvm.conf
+
 # qcom init stuff
 PRODUCT_COPY_FILES += \
-	device/oppo/find5/init.qcom.post_fs.sh:system/etc/init.qcom.post_fs.sh \
-	device/oppo/find5/init.qcom.mdm_links.sh:system/etc/init.qcom.mdm_links.sh \
-	device/oppo/find5/init.qcom.modem_links.sh:system/etc/init.qcom.modem_links.sh \
-	device/oppo/find5/init.qcom.wifi.sh:system/etc/init.qcom.wifi.sh
+	$(LOCAL_PATH)/init.qcom.post_fs.sh:system/etc/init.qcom.post_fs.sh \
+	$(LOCAL_PATH)/init.qcom.mdm_links.sh:system/etc/init.qcom.mdm_links.sh \
+	$(LOCAL_PATH)/init.qcom.modem_links.sh:system/etc/init.qcom.modem_links.sh \
+	$(LOCAL_PATH)/init.qcom.wifi.sh:system/etc/init.qcom.wifi.sh
 
 # Wifi config
 PRODUCT_COPY_FILES += \
-	device/oppo/find5/configs/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf \
-	device/oppo/find5/configs/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf
+	$(LOCAL_PATH)/configs/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf \
+	$(LOCAL_PATH)/configs/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf
 
 # Prebuilt kl and kcm keymaps
 PRODUCT_COPY_FILES += \
-	device/oppo/find5/apq8064-tabla-snd-card_Button_Jack.kl:system/usr/keylayout/apq8064-tabla-snd-card_Button_Jack.kl \
-	device/oppo/find5/hs_detect.kl:system/usr/keylayout/hs_detect.kl \
-	device/oppo/find5/pmic8xxx_pwrkey.kl:system/usr/keylayout/pmic8xxx_pwrkey.kl \
-	device/oppo/find5/keypad_8064.kl:system/usr/keylayout/keypad_8064.kl \
-	device/oppo/find5/synaptics-rmi-ts.kl:system/usr/keylayout/synaptics-rmi-ts.kl \
-	device/oppo/find5/apq8064-tabla-snd-card_Button_Jack.kcm:system/usr/keychars/apq8064-tabla-snd-card_Button_Jack.kcm \
-	device/oppo/find5/hs_detect.kcm:system/usr/keychars/hs_detect.kcm \
-	device/oppo/find5/keypad_8064.kcm:system/usr/keychars/keypad_8064.kcm \
-	device/oppo/find5/pmic8xxx_pwrkey.kcm:system/usr/keychars/pmic8xxx_pwrkey.kcm
+	$(LOCAL_PATH)/apq8064-tabla-snd-card_Button_Jack.kl:system/usr/keylayout/apq8064-tabla-snd-card_Button_Jack.kl \
+	$(LOCAL_PATH)/hs_detect.kl:system/usr/keylayout/hs_detect.kl \
+	$(LOCAL_PATH)/pmic8xxx_pwrkey.kl:system/usr/keylayout/pmic8xxx_pwrkey.kl \
+	$(LOCAL_PATH)/keypad_8064.kl:system/usr/keylayout/keypad_8064.kl \
+	$(LOCAL_PATH)/synaptics-rmi-ts.kl:system/usr/keylayout/synaptics-rmi-ts.kl \
+	$(LOCAL_PATH)/apq8064-tabla-snd-card_Button_Jack.kcm:system/usr/keychars/apq8064-tabla-snd-card_Button_Jack.kcm \
+	$(LOCAL_PATH)/hs_detect.kcm:system/usr/keychars/hs_detect.kcm \
+	$(LOCAL_PATH)/keypad_8064.kcm:system/usr/keychars/keypad_8064.kcm \
+	$(LOCAL_PATH)/pmic8xxx_pwrkey.kcm:system/usr/keychars/pmic8xxx_pwrkey.kcm
+
+# media files
+PRODUCT_COPY_FILES += \
+  $(LOCAL_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml \
+  $(LOCAL_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml
 
 # Prebuilt input device calibration files
 PRODUCT_COPY_FILES += \
-	device/oppo/find5/touch_dev.idc:system/usr/idc/touch_dev.idc
+	$(LOCAL_PATH)/touch_dev.idc:system/usr/idc/touch_dev.idc
 
 # These are the hardware-specific features
 PRODUCT_COPY_FILES += \
@@ -102,12 +116,12 @@ PRODUCT_COPY_FILES += \
 	frameworks/native/data/etc/android.hardware.usb.accessory.xml:system/etc/permissions/android.hardware.usb.accessory.xml \
 	frameworks/native/data/etc/android.hardware.telephony.gsm.xml:system/etc/permissions/android.hardware.telephony.gsm.xml \
 	frameworks/native/data/etc/android.hardware.audio.low_latency.xml:system/etc/permissions/android.hardware.audio.low_latency.xml \
-    frameworks/native/data/etc/android.hardware.bluetooth.xml:system/etc/permissions/android.hardware.bluetooth.xml \
-    frameworks/native/data/etc/android.hardware.bluetooth_le.xml:system/etc/permissions/android.hardware.bluetooth_le.xml
+  frameworks/native/data/etc/android.hardware.bluetooth.xml:system/etc/permissions/android.hardware.bluetooth.xml \
+  frameworks/native/data/etc/android.hardware.bluetooth_le.xml:system/etc/permissions/android.hardware.bluetooth_le.xml
 
 # GPS configuration
 PRODUCT_COPY_FILES += \
-	device/oppo/find5/configs/gps.conf:system/etc/gps.conf
+	$(LOCAL_PATH)/configs/gps.conf:system/etc/gps.conf
 
 # wifi
 PRODUCT_PACKAGES += \
@@ -174,8 +188,8 @@ PRODUCT_PROPERTY_OVERRIDES += persist.hwc.mdpcomp.enable=true
 
 # Cell Broadcasts
 PRODUCT_PROPERTY_OVERRIDES += \
-	ro.cellbroadcast.emergencyids=0-65534 
-        
+	ro.cellbroadcast.emergencyids=0-65534
+
 PRODUCT_CHARACTERISTICS := nosdcard
 
 PRODUCT_TAGS += dalvik.gc.type-precise
@@ -212,7 +226,7 @@ PRODUCT_PACKAGES += \
 	hci_qcomm_init
 
 PRODUCT_COPY_FILES += \
-	device/oppo/find5/configs/init.find5.bt.sh:system/etc/init.find5.bt.sh
+	$(LOCAL_PATH)/configs/init.find5.bt.sh:system/etc/init.find5.bt.sh
 
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.qualcomm.bt.hci_transport=smd
@@ -278,12 +292,11 @@ PRODUCT_PACKAGES += \
 
 # SELinux filesystem labels
 #PRODUCT_COPY_FILES += \
-#    device/oppo/find5/configs/50selinuxrelabel:system/etc/init.d/50selinuxrelabel
-	
+#    $(LOCAL_PATH)/configs/50selinuxrelabel:system/etc/init.d/50selinuxrelabel
+
 # other apps
 PRODUCT_PACKAGES += \
 	Find5Parts
 
 $(call inherit-product, frameworks/native/build/phone-xxhdpi-2048-dalvik-heap.mk)
 $(call inherit-product, frameworks/native/build/phone-xxhdpi-2048-hwui-memory.mk)
-
