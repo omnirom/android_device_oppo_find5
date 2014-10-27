@@ -46,17 +46,26 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
 	device/oppo/find5/thermald-find5.conf:system/etc/thermald.conf
 
+# Ramdisk
 PRODUCT_COPY_FILES += \
 	device/oppo/find5/configs/init.find5.rc:root/init.find5.rc \
 	device/oppo/find5/configs/init.find5.usb.rc:root/init.find5.usb.rc \
 	device/oppo/find5/configs/init.recovery.find5.rc:root/init.recovery.find5.rc \
 	device/oppo/find5/configs/tpupdate.rle:root/tpupdate.rle \
-	device/oppo/find5/configs/fstab.find5:root/fstab.find5 \
-	device/oppo/find5/configs/twrp.fstab:recovery/root/etc/twrp.fstab \
-	device/oppo/find5/configs/ueventd.find5.rc:root/ueventd.find5.rc \
-	device/oppo/find5/configs/media_profiles.xml:system/etc/media_profiles.xml \
-	device/oppo/find5/configs/media_codecs.xml:system/etc/media_codecs.xml
-	
+  device/oppo/find5/configs/fstab.find5.std:root/fstab.qcom.std \
+  device/oppo/find5/configs/fstab.find5.lvm:root/fstab.qcom.lvm \
+	device/oppo/find5/configs/twrp.fstab.lvm:recovery/root/etc/twrp.fstab.lvm \
+  device/oppo/find5/configs/twrp.fstab.std:recovery/root/etc/twrp.fstab.std
+
+# LVM
+PRODUCT_COPY_FILES += \
+    device/oppo/find5/lvm/lvm_init.sh:root/lvm_init.sh \
+    device/oppo/find5/lvm/lvm_init_recovery.sh:recovery/root/sbin/lvm_init_recovery.sh \
+    device/oppo/find5/lvm/lvm_symlinks.sh:root/lvm_symlinks.sh \
+    device/oppo/find5/lvm/lvm_setprop.sh:root/lvm_setprop.sh \
+    device/oppo/find5/lvm/lvm:root/sbin/lvm \
+    device/oppo/find5/lvm/lvm.conf:root/lvm/etc/lvm.conf
+
 # qcom init stuff
 PRODUCT_COPY_FILES += \
 	device/oppo/find5/init.qcom.post_fs.sh:system/etc/init.qcom.post_fs.sh \
@@ -80,6 +89,11 @@ PRODUCT_COPY_FILES += \
 	device/oppo/find5/hs_detect.kcm:system/usr/keychars/hs_detect.kcm \
 	device/oppo/find5/keypad_8064.kcm:system/usr/keychars/keypad_8064.kcm \
 	device/oppo/find5/pmic8xxx_pwrkey.kcm:system/usr/keychars/pmic8xxx_pwrkey.kcm
+
+# media files
+PRODUCT_COPY_FILES += \
+  device/oppo/find5/configs/media_profiles.xml:system/etc/media_profiles.xml \
+  device/oppo/find5/configs/media_codecs.xml:system/etc/media_codecs.xml
 
 # Prebuilt input device calibration files
 PRODUCT_COPY_FILES += \
@@ -174,8 +188,8 @@ PRODUCT_PROPERTY_OVERRIDES += persist.hwc.mdpcomp.enable=true
 
 # Cell Broadcasts
 PRODUCT_PROPERTY_OVERRIDES += \
-	ro.cellbroadcast.emergencyids=0-65534 
-        
+	ro.cellbroadcast.emergencyids=0-65534
+
 PRODUCT_CHARACTERISTICS := nosdcard
 
 PRODUCT_TAGS += dalvik.gc.type-precise
@@ -279,11 +293,10 @@ PRODUCT_PACKAGES += \
 # SELinux filesystem labels
 #PRODUCT_COPY_FILES += \
 #    device/oppo/find5/configs/50selinuxrelabel:system/etc/init.d/50selinuxrelabel
-	
+
 # other apps
 PRODUCT_PACKAGES += \
 	Find5Parts
 
 $(call inherit-product, frameworks/native/build/phone-xxhdpi-2048-dalvik-heap.mk)
 $(call inherit-product, frameworks/native/build/phone-xxhdpi-2048-hwui-memory.mk)
-
