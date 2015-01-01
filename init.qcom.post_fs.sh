@@ -57,9 +57,8 @@ logi "init.qcom.thermald_conf.sh"
 
 # wifi setup
 logi "init.qcom.wifi.sh"
-/system/bin/sh /system/etc/init.qcom.wifi.sh
+#/system/bin/sh /system/etc/init.qcom.wifi.sh
 
 # This should be the last command
 # remount system as read-only.
 mount -o ro,remount,noatime,noauto_da_alloc /system
-
