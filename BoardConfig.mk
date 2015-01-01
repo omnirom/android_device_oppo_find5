@@ -38,7 +38,7 @@ TARGET_NO_BOOTLOADER := true
 
 BOARD_KERNEL_BASE := 0x80200000
 BOARD_KERNEL_PAGESIZE := 2048
-BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.hardware=find5 lpj=67677 user_debug=31 msm_rtb.filter=0x3F ehci-hcd.park=3
+BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.hardware=find5 androidboot.selinux=permissive lpj=67677 user_debug=31 msm_rtb.filter=0x3F ehci-hcd.park=3
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x02000000
 
 # Bluetooth
@@ -53,6 +53,12 @@ TARGET_BOOTLOADER_NAME=find5
 TARGET_BOARD_INFO_FILE := device/oppo/find5/board-info.txt
 
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/oppo/find5/bluetooth
+
+# Audio Based off of Max's changes on the N1
+# TODO - if we merge all CAF changes into av we should be able to use the policy there - Maxwen
+USE_LEGACY_AUDIO_POLICY := 1
+USE_CUSTOM_AUDIO_POLICY := 0
+BOARD_USES_EXTN_AUDIO_POLICY_MANAGER := true
 
 # Wifi
 BOARD_HAS_QCOM_WLAN              := true
@@ -81,12 +87,22 @@ TARGET_USES_ION := true
 TARGET_USES_C2D_COMPOSITION := true
 NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
 
+BOARD_USES_LEGACY_MMAP := true
+TARGET_USES_LOGD := false
+
 # Recovery
 TARGET_RECOVERY_FSTAB := device/oppo/find5/configs/fstab.find5
 RECOVERY_FSTAB_VERSION := 2
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/oppo/find5/recovery/recovery_keys.c
 BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_23x41.h\"
+
+# TWRP Specific
+TW_NO_USB_STORAGE := true
+TW_INCLUDE_JB_CRYPTO := true
+TW_NO_SCREEN_BLANK := true
+TW_EXCLUDE_ENCRYPTED_BACKUPS := true
+TW_INCLUDE_L_CRYPTO := true
 
 TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_BOOTIMAGE_PARTITION_SIZE := 10485760
